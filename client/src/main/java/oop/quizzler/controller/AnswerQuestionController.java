@@ -1,7 +1,9 @@
 package oop.quizzler.controller;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -29,13 +31,25 @@ public class AnswerQuestionController implements Initializable{
     private Attempt attempt = StartQuizzler.getAttempt();
     private Quiz activeQuiz = StartQuizzler.getActiveQuiz();
     private Question question;
+    private ArrayList<String> selected = new ArrayList<String>();
 
     @FXML
     private void nextQuestion() throws IOException {
-        RadioButton selected = (RadioButton) group.getSelectedToggle();
+        if (button1.isSelected()) {
+            selected.add(button1.getText());
+        }
+        if (button2.isSelected()) {
+            selected.add(button2.getText());
+        }
+        if (button3.isSelected()) {
+            selected.add(button3.getText());
+        }
+        if (button4.isSelected()) {
+            selected.add(button4.getText());        
+        }
 
         if (selected != null){
-            if (selected.getText().equals(question.getCorrectAnswer())) {
+            if (selected.equals(question.getCorrectAnswer())) {
                 attempt.setScore(attempt.getScore()+1);
             }
         } else {
@@ -54,7 +68,6 @@ public class AnswerQuestionController implements Initializable{
         } else {
             Connection connection = StartQuizzler.getConnection();
             connection.addHighscore(attempt, activeQuiz.getName());
-            System.out.println("sollte hier drin stehen: " + connection.getQuizFromServer(activeQuiz.getName()).getAttempts());
             StartQuizzler.setRoot("viewScore");
         }
     }

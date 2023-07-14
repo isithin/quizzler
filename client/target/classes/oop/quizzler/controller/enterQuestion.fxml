@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.EnterQuestionController">
@@ -18,12 +17,9 @@
       <TextField fx:id="answer3" layoutX="133.0" layoutY="240.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="answer4" layoutX="356.0" layoutY="240.0" prefHeight="25.0" prefWidth="136.0" />
       <Label layoutX="187.0" layoutY="122.0" text="Enter 4 answers and select the correct one." />
-      <RadioButton fx:id="button1" layoutX="105.0" layoutY="167.0" mnemonicParsing="false">
-         <toggleGroup>
-            <ToggleGroup fx:id="group" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="button2" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" toggleGroup="$group" />
-      <RadioButton fx:id="button3" layoutX="105.0" layoutY="244.0" mnemonicParsing="false" toggleGroup="$group" />
-      <RadioButton fx:id="button4" layoutX="331.0" layoutY="244.0" mnemonicParsing="false" toggleGroup="$group" />
+      <RadioButton fx:id="button1" layoutX="105.0" layoutY="167.0" mnemonicParsing="false" />
+      <RadioButton fx:id="button2" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" />
+      <RadioButton fx:id="button3" layoutX="105.0" layoutY="244.0" mnemonicParsing="false" />
+      <RadioButton fx:id="button4" layoutX="331.0" layoutY="244.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>
