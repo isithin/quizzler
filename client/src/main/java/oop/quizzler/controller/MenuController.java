@@ -10,6 +10,7 @@ public class MenuController {
     //Views
     @FXML private Button play;
     @FXML private Button create;
+    @FXML private Button back;
     
     @FXML
     private void switchToSelectQuiz() throws IOException {
@@ -20,4 +21,10 @@ public class MenuController {
     private void switchToNamingQuiz() throws IOException {
         StartQuizzler.setRoot("namingQuiz");
     }
+
+    @FXML
+    private void switchToWelcome() throws IOException {
+        StartQuizzler.setRoot("welcome");
+    }
+
 }

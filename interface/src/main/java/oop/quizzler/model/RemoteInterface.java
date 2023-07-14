@@ -3,9 +3,6 @@ package oop.quizzler.model;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import oop.quizzler.model.Attempt;
-import oop.quizzler.model.Quiz;
-
 public interface RemoteInterface extends Remote{
 
     public String getItem() throws RemoteException;

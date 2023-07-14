@@ -52,8 +52,7 @@ public class AnswerQuestionController implements Initializable{
             attempt.setCount(attempt.getCount()+1);
             StartQuizzler.setRoot("answerQuestion");
         } else {
-            System.out.println("you done bitch");
-            Connection connection = new Connection();
+            Connection connection = StartQuizzler.getConnection();
             connection.addHighscore(attempt, activeQuiz.getName());
             System.out.println("sollte hier drin stehen: " + connection.getQuizFromServer(activeQuiz.getName()).getAttempts());
             StartQuizzler.setRoot("viewScore");

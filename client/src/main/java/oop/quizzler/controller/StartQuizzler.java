@@ -6,10 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import oop.quizzler.model.Attempt;
+import oop.quizzler.model.Connection;
 
 import java.io.IOException;
-
-// import Quiz class from module interface
 import oop.quizzler.model.Quiz;
 
 
@@ -22,12 +21,13 @@ public class StartQuizzler extends Application {
     private static Quiz newQuiz;
     private static Quiz activeQuiz;
     private static Attempt attempt;
+    private static Connection connection;
 
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         try{
-            scene = new Scene(loadFXML("menu"), 640, 480);
+            scene = new Scene(loadFXML("welcome"), 640, 480);
             stage.setScene(scene);
             stage.show();
 
@@ -67,6 +67,14 @@ public class StartQuizzler extends Application {
 
     public static Quiz getActiveQuiz() {
         return StartQuizzler.activeQuiz;
+    }
+
+    public static void setConnection(Connection connection) {
+        StartQuizzler.connection = connection;
+    }
+
+    public static Connection getConnection() {
+        return StartQuizzler.connection;
     }
 
     public static void main(String[] args) {

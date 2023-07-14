@@ -36,7 +36,7 @@ public class EnterQuestionController{
     @FXML
     private void saveAndQuit() throws IOException{
         addQuestionToQuiz();
-        Connection connection = new Connection();
+        Connection connection = StartQuizzler.getConnection();
         if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
             Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
             alert.showAndWait();

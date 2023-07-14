@@ -26,7 +26,7 @@ public class SelectQuizController implements Initializable{
     @FXML
     private void getItem(){
         try {
-            connection = new Connection();
+            connection = StartQuizzler.getConnection();
             System.out.println(connection.getAllQuizNamesFromServer());
             quizList = Arrays.asList(connection.getAllQuizNamesFromServer());
             

@@ -3,7 +3,6 @@ package oop.quizzler.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,7 +27,7 @@ public class ViewHighscoresController implements Initializable{
 
     private void getItem(){
         try {
-            Connection connection = new Connection();
+            Connection connection = StartQuizzler.getConnection();
             attemptList = connection.getQuizFromServer(StartQuizzler.getActiveQuiz().getName()).getAttempts();
             
         } catch(Exception e) {

@@ -6,12 +6,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import oop.quizzler.model.Quiz;
 
 public class EnterUsernameController {
     @FXML private TextField username;
-
-    private Quiz newQuiz;
 
     @FXML
     private void switchToMenu() throws IOException {
