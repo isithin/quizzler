@@ -1,0 +1,6 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "maven.view": "flat",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.project.sourcePaths": []
+}
