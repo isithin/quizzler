@@ -1,8 +1,6 @@
 package oop.quizzler.controller;
 
 import java.io.IOException;
-import java.net.ConnectException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

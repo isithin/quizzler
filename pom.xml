@@ -22,7 +22,7 @@
     
     <module>client</module>
     <module>server</module>    
-    <module>interface</module>
+    <module>shared</module>
       
   </modules>
 

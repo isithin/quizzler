@@ -29,7 +29,7 @@
         </dependency>
         <dependency>
             <groupId>oop.quizzler</groupId>
-            <artifactId>interface</artifactId>
+            <artifactId>shared</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
