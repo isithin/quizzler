@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="431.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.ViewHighscoresController">
+   <children>
+      <HBox layoutY="23.0" prefHeight="46.0" prefWidth="431.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="432.0" stylesheets="@style.css" text="Highscores" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" />
+      <HBox alignment="CENTER" layoutY="294.0" prefHeight="71.0" prefWidth="432.0">
+         <children>
+            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#switchToMenu" stylesheets="@style.css" text="Menu" />
+         </children>
+      </HBox>
+      <ListView fx:id="scoreListView" layoutX="116.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" />
+   </children>
+</AnchorPane>
