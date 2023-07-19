@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.AnswerQuestionController">
+   <children>
+      <Label fx:id="questionText" alignment="CENTER" layoutY="53.0" prefHeight="39.0" prefWidth="600.0" stylesheets="@style.css" />
+      <Button alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" layoutX="459.0" layoutY="341.0" mnemonicParsing="false" onAction="#nextQuestion" stylesheets="@style.css" text="Submit" />
+      <RadioButton fx:id="button1" layoutX="131.0" layoutY="167.0" mnemonicParsing="false" stylesheets="@style.css">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="button2" layoutX="347.0" layoutY="167.0" mnemonicParsing="false" stylesheets="@style.css" toggleGroup="$group" />
+      <RadioButton fx:id="button3" layoutX="131.0" layoutY="244.0" mnemonicParsing="false" stylesheets="@style.css" toggleGroup="$group" />
+      <RadioButton fx:id="button4" layoutX="347.0" layoutY="244.0" mnemonicParsing="false" stylesheets="@style.css" toggleGroup="$group" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+.root{
+   -fx-background-color: #1e90ff;
+}
+
+.label{
+   -fx-font-size: 20pt;
+   -fx-text-fill: "white";
+   -fx-alignment: center;
+}
+
+.button{
+   -fx-front-size: 60pt;
+   -fx-background-color: #00008B;
+   -fx-text-fill: "white";
+   -fx-alignment: center;
+}
+
+.button:hover{
+   -fx-background-color: #67d5fa;
+}
+
+.button:pressed{
+   -fx-background-color: #67d5fa;
+}
+
+
+
+
+
+
+
+
