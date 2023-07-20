@@ -16,10 +16,11 @@
       <TextField fx:id="answer2" layoutX="356.0" layoutY="163.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="answer3" layoutX="133.0" layoutY="240.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="answer4" layoutX="356.0" layoutY="240.0" prefHeight="25.0" prefWidth="136.0" />
-      <Label layoutX="187.0" layoutY="122.0" text="Enter 4 answers and select the correct one." />
+      <Label fx:id="description" layoutX="187.0" layoutY="122.0" prefHeight="17.0" />
       <RadioButton fx:id="button1" layoutX="105.0" layoutY="167.0" mnemonicParsing="false" />
       <RadioButton fx:id="button2" layoutX="331.0" layoutY="167.0" mnemonicParsing="false" />
       <RadioButton fx:id="button3" layoutX="105.0" layoutY="244.0" mnemonicParsing="false" />
       <RadioButton fx:id="button4" layoutX="331.0" layoutY="244.0" mnemonicParsing="false" />
+      <TextField fx:id="correctAnswerText" layoutX="143.0" layoutY="200.0" prefHeight="25.0" prefWidth="314.0" />
    </children>
 </AnchorPane>

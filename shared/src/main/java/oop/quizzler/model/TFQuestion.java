@@ -1,18 +1,12 @@
 package oop.quizzler.model;
 import java.util.ArrayList;
 
-public class MCQuestion extends Question{
-    private String[] answers;
+public class TFQuestion extends Question{
 
-    public MCQuestion (String question, String[] answers, ArrayList<String> correctAnswers) {
+    public TFQuestion (String question, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
-        this.displayType = DisplayType.MC;
-        this.answers = answers;
+        this.displayType = DisplayType.TF;
 	}
-
-    public String[] getAnswers() {
-        return this.answers;
-    }
 
     @Override
     public boolean checkAnswer(ArrayList<String> givenAnswers) {
@@ -29,4 +23,3 @@ public class MCQuestion extends Question{
 
 
 }
-
