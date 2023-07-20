@@ -44,9 +44,11 @@ public class EnterQuestionController implements Initializable{
         //test ob was angeklickt wurde
         if (DisplayType.MC == displayType) {
             addMCQuestionToQuiz();
+        } else if (DisplayType.TF == displayType){
+            addTFQuestionToQuiz();
+        } else {
+            System.out.println("Error: DisplayType not set");
         }
-        System.out.println("added");
-        StartQuizzler.setRoot("selectQuestionType");
 
     }
 
@@ -78,7 +80,6 @@ public class EnterQuestionController implements Initializable{
                 alert.close();
             }
         };
-        System.out.println("Quizzes added: "+connection.getQuizFromServer("test"));
     }
 
     private void addMCQuestionToQuiz() {
@@ -122,7 +123,7 @@ public class EnterQuestionController implements Initializable{
             button3.setVisible(true);
             button4.setVisible(true);
             correctAnswerText.setVisible(false);
-            description.setText("Please enter the answers. Select the correct answers.");
+            description.setText("Please enter possible answers and select the correct answers.");
         } else {
             answer1.setVisible(false);
             answer2.setVisible(false);
