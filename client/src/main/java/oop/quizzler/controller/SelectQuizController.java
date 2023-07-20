@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,10 +12,11 @@ import javafx.scene.control.ListView;
 import oop.quizzler.model.Connection;
 
 public class SelectQuizController implements Initializable{
-    private Connection connection;
-    
+    //Views
     @FXML private ListView<String> quizListView;
+
     private  List<String> quizList;
+    private Connection connection;
 
     @FXML
     private void switchToMenu() throws IOException {
@@ -24,12 +24,20 @@ public class SelectQuizController implements Initializable{
     }
 
     @FXML
+    private void switchToEnterUsername() throws IOException{
+        StartQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+        StartQuizzler.setRoot("enterUsername");
+    }
+
+    @FXML
+    private void deleteQuiz() throws IOException{
+        //todo
+    }
+    
     private void getItem(){
         try {
             connection = StartQuizzler.getConnection();
-            System.out.println(connection.getAllQuizNamesFromServer());
-            quizList = Arrays.asList(connection.getAllQuizNamesFromServer());
-            
+            quizList = Arrays.asList(connection.getAllQuizNamesFromServer());   
         } catch(Exception e) {
             e.printStackTrace();
         }  
@@ -40,11 +48,4 @@ public class SelectQuizController implements Initializable{
         getItem();
         quizListView.setItems(FXCollections.observableList(quizList));
     }    
-
-    @FXML
-    private void switchToEnterUsername() throws IOException{
-        StartQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
-        StartQuizzler.setRoot("enterUsername");
-    }
-
 }

@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,13 +16,13 @@ public class ViewHighscoresController implements Initializable{
    
     //Views
     @FXML private ListView<String> scoreListView;
+
     private ArrayList<Attempt> attemptList;
 
     @FXML
     private void switchToMenu() throws IOException {
         StartQuizzler.setRoot("menu");
     }
-
 
     private void getItem(){
         try {

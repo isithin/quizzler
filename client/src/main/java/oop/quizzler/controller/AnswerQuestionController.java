@@ -1,11 +1,9 @@
 package oop.quizzler.controller;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -47,12 +45,10 @@ public class AnswerQuestionController implements Initializable{
         } else {
             Alert alert = new Alert(AlertType.NONE, "Please answer", ButtonType.OK);
             alert.showAndWait();
-
             if (alert.getResult() == ButtonType.OK) {
                 alert.close();
             }
         }
-
         if (attempt.getCount() < StartQuizzler.getActiveQuiz().getQuestionsInt()-1) {
             attempt.setCount(attempt.getCount()+1);
             StartQuizzler.setRoot("answerQuestion");
@@ -80,13 +76,17 @@ public class AnswerQuestionController implements Initializable{
                 answer.add(button4.getText());        
             }
         } else {
-            System.out.println("Gibts nicht");
+            Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
         }
     }
 
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         question = StartQuizzler.getActiveQuiz().getQuestions().get(attempt.getCount());
 
         if (question.getDisplayType().equals(DisplayType.MC)) {
@@ -100,7 +100,6 @@ public class AnswerQuestionController implements Initializable{
             button3.setVisible(true);
             button4.setVisible(true);
             answerText.setVisible(false);
-
         } else if (question.getDisplayType().equals(DisplayType.TF)) {
             questionText.setText(question.getQuestion());
             button1.setVisible(false);
@@ -108,12 +107,12 @@ public class AnswerQuestionController implements Initializable{
             button3.setVisible(false);
             button4.setVisible(false);
             answerText.setVisible(true);
-
         } else {
-            System.out.println("Gibts nicht");
-        }
-
-        
+            Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        }   
     }   
-
 }

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -13,17 +12,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import oop.quizzler.model.Question;
 import oop.quizzler.model.Connection;
 import oop.quizzler.model.DisplayType;
 import oop.quizzler.model.MCQuestion;
-import oop.quizzler.model.Quiz;
 import oop.quizzler.model.TFQuestion;
 
 public class EnterQuestionController implements Initializable{
     
     private ArrayList<String> correctAnswers = new ArrayList<String>();
-   
     private DisplayType displayType = StartQuizzler.getDisplayType();
 
     //Views
@@ -41,7 +37,7 @@ public class EnterQuestionController implements Initializable{
 
     @FXML
     private void createMore() throws IOException{
-        //test ob was angeklickt wurde
+        //test ob was angeklickt wurde fehlt noch
         if (DisplayType.MC == displayType) {
             addMCQuestionToQuiz();
         } else if (DisplayType.TF == displayType){
@@ -98,17 +94,53 @@ public class EnterQuestionController implements Initializable{
         }
         String[] answers = {answer1.getText(), answer2.getText(), answer3.getText(), answer4.getText()};
         String questionText = questionField.getText();
-        MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
-        StartQuizzler.getNewQuiz().setQuestion(question);
-        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        //i guess we want to generate custom exceptions for this (otherwise the "selectQuestionType" window will load)
+        if (correctAnswers.size() == 0) {
+            Alert alert = new Alert(AlertType.NONE, "Please select at least one correct answer", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else if (answers[0].equals("") || answers[1].equals("") || answers[2].equals("") || answers[3].equals("")) {
+            Alert alert = new Alert(AlertType.NONE, "Please enter all answers", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else if (questionText.equals("")) {
+            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else {
+            MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
+            StartQuizzler.getNewQuiz().setQuestion(question);
+            System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        }
     }
 
     private void addTFQuestionToQuiz() {
         correctAnswers.add(correctAnswerText.getText());
         String questionText = questionField.getText();
-        TFQuestion question = new TFQuestion(questionText, correctAnswers);
-        StartQuizzler.getNewQuiz().setQuestion(question);
-        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        //custom exceptions here also?
+        if (correctAnswers.size() == 0) {
+            Alert alert = new Alert(AlertType.NONE, "Please enter a correct answer", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else if (questionText.equals("")) {
+            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else {
+            TFQuestion question = new TFQuestion(questionText, correctAnswers);
+            StartQuizzler.getNewQuiz().setQuestion(question);
+            System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        }
     }
 
     @Override

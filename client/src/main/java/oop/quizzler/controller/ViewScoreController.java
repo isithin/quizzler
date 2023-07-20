@@ -3,7 +3,6 @@ package oop.quizzler.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -11,7 +10,6 @@ import javafx.scene.control.Label;
 public class ViewScoreController implements Initializable{
     //Views
     @FXML private Label scoreResults;
-
 
     @FXML
     private void switchToMenu() throws IOException {

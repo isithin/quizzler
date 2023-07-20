@@ -42,5 +42,13 @@ public class Attempt implements Comparable, Serializable{
         this.count = newCount;
     }
 
+    public Quiz getActiveQuiz() {
+        return activeQuiz;
+    }
+
+    public void setActiveQuiz(Quiz activeQuiz) {
+        this.activeQuiz = activeQuiz;
+    }
+
 
 }

@@ -8,12 +8,8 @@ import javafx.stage.Stage;
 import oop.quizzler.model.Attempt;
 import oop.quizzler.model.Connection;
 import oop.quizzler.model.DisplayType;
-import oop.quizzler.model.Question;
-
 import java.io.IOException;
 import oop.quizzler.model.Quiz;
-
-
 
 public class StartQuizzler extends Application {
 
