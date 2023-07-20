@@ -1,13 +1,15 @@
 package oop.quizzler.model;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Question implements Serializable{
-    private String question;
-    private String[] answers;
-    private ArrayList<String> correctAnswers;
+public abstract class Question implements Serializable{
+    protected String question;
+    protected String[] answers;
+    protected ArrayList<String> correctAnswers;
+    protected boolean isCorrect;
+    protected DisplayType displayType;
 
+    
     public Question (String question, String[] answers, ArrayList<String> correctAnswers) {
 		this.question = question; 
 		this.answers = answers;
@@ -25,6 +27,20 @@ public class Question implements Serializable{
     public ArrayList<String>getCorrectAnswer() {
         return this.correctAnswers;
     }
+
+    public boolean getIsCorrect() {
+        return this.isCorrect;
+    }
+    
+    public void setIsCorrect(boolean isCorrect) {
+        this.isCorrect = isCorrect;
+    }
+
+    public DisplayType getDisplayType() {
+        return this.displayType;
+    }
+
+    public abstract void checkAnswer(ArrayList<String> givenAnswers);
 
 }
 

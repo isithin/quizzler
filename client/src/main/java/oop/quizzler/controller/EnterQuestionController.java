@@ -1,8 +1,12 @@
 package oop.quizzler.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
@@ -10,11 +14,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import oop.quizzler.model.Question;
 import oop.quizzler.model.Connection;
+import oop.quizzler.model.DisplayType;
+import oop.quizzler.model.MCQuestion;
+import oop.quizzler.model.Quiz;
 
-public class EnterQuestionController{
+public class EnterQuestionController implements Initializable{
     
     private ArrayList<String> correctAnswers = new ArrayList<String>();
    
+    private DisplayType displayType = StartQuizzler.getDisplayType();
+
     //Views
     @FXML private TextField answer1;
     @FXML private TextField answer2;
@@ -29,16 +38,20 @@ public class EnterQuestionController{
     @FXML
     private void createMore() throws IOException{
         //test ob was angeklickt wurde
-        addQuestionToQuiz();
+        if (DisplayType.MC == displayType) {
+            addMCQuestionToQuiz();
+        }
         System.out.println("added");
-        StartQuizzler.setRoot("enterQuestion");
+        StartQuizzler.setRoot("selectQuestionType");
 
     }
 
     @FXML
     private void saveAndQuit() throws IOException{
-        //test ob was angeklickt wurde
-        addQuestionToQuiz();
+        //test ob was angeklickt wurde fehlt noch
+        if (DisplayType.MC == displayType) {
+            addMCQuestionToQuiz();
+        }
         Connection connection = StartQuizzler.getConnection();
         if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
             Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
@@ -59,7 +72,7 @@ public class EnterQuestionController{
         System.out.println("Quizzes added: "+connection.getQuizFromServer("test"));
     }
 
-    private void addQuestionToQuiz() {
+    private void addMCQuestionToQuiz() {
 
         if (button1.isSelected()) {
             correctAnswers.add(answer1.getText());
@@ -75,8 +88,26 @@ public class EnterQuestionController{
         }
         String[] answers = {answer1.getText(), answer2.getText(), answer3.getText(), answer4.getText()};
         String questionText = questionField.getText();
-        Question question = new Question(questionText, answers, correctAnswers);
+        MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
         StartQuizzler.getNewQuiz().setQuestion(question);
         System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        if (displayType == DisplayType.MC) {
+            answer1.setVisible(true);
+            answer2.setVisible(true);
+            answer3.setVisible(true);
+            answer4.setVisible(true);
+            button1.setVisible(true);
+            button2.setVisible(true);
+            button3.setVisible(true);
+            button4.setVisible(true);
+        } else {
+            System.out.println("DisplayType not implemented yet");
+        }
+
+        
+    }   
 }

@@ -16,7 +16,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import oop.quizzler.model.Attempt;
 import oop.quizzler.model.Connection;
+import oop.quizzler.model.DisplayType;
 import oop.quizzler.model.Question;
+import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.Quiz;
 
 public class AnswerQuestionController implements Initializable{
@@ -77,11 +79,18 @@ public class AnswerQuestionController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         question = StartQuizzler.getActiveQuiz().getQuestions().get(attempt.getCount());
 
-        button1.setText((question.getAnswers())[0]);
-        button2.setText((question.getAnswers())[1]);
-        button3.setText((question.getAnswers())[2]);
-        button4.setText((question.getAnswers())[3]);
-        questionText.setText(question.getQuestion());;
+        if (question.getDisplayType().equals(DisplayType.MC)) {
+            button1.setText((question.getAnswers())[0]);
+            button2.setText((question.getAnswers())[1]);
+            button3.setText((question.getAnswers())[2]);
+            button4.setText((question.getAnswers())[3]);
+            questionText.setText(question.getQuestion());;
+
+        } else {
+            System.out.println("Not MC");
+        }
+
+        
     }   
 
 }

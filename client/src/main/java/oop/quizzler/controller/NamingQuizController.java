@@ -32,7 +32,7 @@ public class NamingQuizController {
             try {
                 System.out.println(quizName.getText());
                 StartQuizzler.createNewQuiz(quizName.getText());
-                StartQuizzler.setRoot("enterQuestion");
+                StartQuizzler.setRoot("selectQuestionType");
             } catch (IOException e) {
                 e.printStackTrace();
             }

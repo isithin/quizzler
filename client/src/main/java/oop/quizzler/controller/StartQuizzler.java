@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import oop.quizzler.model.Attempt;
 import oop.quizzler.model.Connection;
+import oop.quizzler.model.DisplayType;
+import oop.quizzler.model.Question;
 
 import java.io.IOException;
 import oop.quizzler.model.Quiz;
@@ -22,6 +24,7 @@ public class StartQuizzler extends Application {
     private static Quiz activeQuiz;
     private static Attempt attempt;
     private static Connection connection;
+    private static DisplayType displayType;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -75,6 +78,14 @@ public class StartQuizzler extends Application {
 
     public static Connection getConnection() {
         return StartQuizzler.connection;
+    }
+
+    public static void setDisplayType(DisplayType displayType) {
+        StartQuizzler.displayType = displayType;
+    }
+
+    public static DisplayType getDisplayType() {
+        return StartQuizzler.displayType;
     }
 
     public static void main(String[] args) {
