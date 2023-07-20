@@ -44,11 +44,6 @@ public class AnswerQuestionController implements Initializable{
             if (question.checkAnswer(answer)) {
                 attempt.setScore(attempt.getScore()+1);
             }
-            /* 
-            if (answer.equals(question.getCorrectAnswer())) {
-                attempt.setScore(attempt.getScore()+1);
-            }
-            */
         } else {
             Alert alert = new Alert(AlertType.NONE, "Please answer", ButtonType.OK);
             alert.showAndWait();

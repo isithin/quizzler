@@ -49,7 +49,7 @@ public class EnterQuestionController implements Initializable{
         } else {
             System.out.println("Error: DisplayType not set");
         }
-
+        StartQuizzler.setRoot("selectQuestionType");
     }
 
     @FXML
@@ -62,7 +62,7 @@ public class EnterQuestionController implements Initializable{
         } else {
             System.out.println("Error: DisplayType not set");
         }
-
+    
         Connection connection = StartQuizzler.getConnection();
         if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
             Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
