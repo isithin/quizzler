@@ -22,15 +22,10 @@ public class Connection {
         try {
 			Registry reg = LocateRegistry.getRegistry(ip, port);
 			remoteInterface = (RemoteInterface) reg.lookup("Quizzler");
+            //for debugging
 			System.out.println("Connected.");          
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-            //eigentlich überflüssig
-			System.out.println("Connection failed.");
-		} catch (NotBoundException e) {
-			e.printStackTrace();
-            //eigentlich überflüssig
-			System.out.println("Connection failed.");
 		} 
         return remoteInterface;
     }
@@ -82,15 +77,6 @@ public class Connection {
             e.printStackTrace();
         }
     }
-
-    public String getItem() {
-        try {
-            return remoteInterface.getItem();
-        } catch(RemoteException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
     
     public String getIp() {
         return this.ip;
@@ -107,7 +93,4 @@ public class Connection {
     public void setPort(int port) {
         this.port = port;
     }
-
-
-
 }

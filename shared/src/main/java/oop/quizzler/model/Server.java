@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
@@ -22,6 +21,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         if (data.exists()) {
             try(ObjectInputStream input = new ObjectInputStream(new FileInputStream(data))) {
                 quizzes = (ArrayList<Quiz>) input.readObject();
+                //for debugging
                 System.out.println("Loading Quizzes");
                 input.close();
             } catch(IOException e) {
@@ -36,15 +36,14 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         if (newquiz != null) {
             quizzes.add(newquiz);
             flush();
+            //for debugging
             System.out.println("Quiz added");
             return true;
         }
         return false;
-        
     }
 
     public Quiz getQuiz(String name) {
-        System.out.println(quizzes);
         for (Quiz quiz: quizzes) {
             if (quiz.getName().equals(name)) {
                 return quiz;
@@ -82,12 +81,8 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         }
     }
 
-    public String getItem() {
-        return "Raff_erst_mal_das_Speichern";
-    }
-
     private void flush() {
-        File data = new File("Data.txt");
+        File data = new File("QuizData.txt");
         if (data.exists()) {
             data.delete();
         }
@@ -95,6 +90,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
             output.writeObject(quizzes);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

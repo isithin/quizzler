@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
 public class NamingQuizController {
+    //Views
     @FXML private TextField quizName;
 
     @FXML
@@ -17,14 +18,11 @@ public class NamingQuizController {
         StartQuizzler.setRoot("menu");
     }
 
-    
-    
     @FXML
-    private void switchToEditor(ActionEvent event) {
+    private void switchToEditor() {
         if ((quizName.getText()).length() == 0) {
             Alert alert = new Alert(AlertType.NONE, "Please enter a Quizname", ButtonType.OK);
             alert.showAndWait();
-
             if (alert.getResult() == ButtonType.OK) {
                 alert.close();
             }

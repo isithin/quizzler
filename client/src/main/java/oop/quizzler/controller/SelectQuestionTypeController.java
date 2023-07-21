@@ -12,7 +12,7 @@ import javafx.scene.control.ToggleGroup;
 
 public class SelectQuestionTypeController {
 
-    //View
+    //Views
     @FXML private RadioButton mc;
     @FXML private RadioButton tf;
     @FXML private ToggleGroup group;
@@ -20,7 +20,6 @@ public class SelectQuestionTypeController {
     @FXML
     private void switchToEnterQuestion() throws IOException {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
-
         if (selected != null){
             if (selected.getId().equals(mc.getId())) {
                 StartQuizzler.setDisplayType(DisplayType.MC);
@@ -33,12 +32,10 @@ public class SelectQuestionTypeController {
         } else {
             Alert alert = new Alert(AlertType.NONE, "Please select a Questiontype", ButtonType.OK);
             alert.showAndWait();
-
             if (alert.getResult() == ButtonType.OK) {
                 alert.close();
             }
-        }
-        
+        }   
     }
 
     @FXML
