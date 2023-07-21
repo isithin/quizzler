@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import oop.quizzler.model.Connection;
 
@@ -31,9 +32,21 @@ public class SelectQuizController implements Initializable{
 
     @FXML
     private void deleteQuiz() throws IOException{
-        //todo
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Quiz");
+        alert.setHeaderText("Are you sure you want to delete this quiz?");
+
+        if (alert.showAndWait().get().getText().equals("OK")) {
+            connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
+            getItem();
+            quizListView.setItems(FXCollections.observableList(quizList));
+            alert.close();
+        } else {
+            alert.close();
+        }
+        
     }
-    
+
     private void getItem(){
         try {
             connection = StartQuizzler.getConnection();

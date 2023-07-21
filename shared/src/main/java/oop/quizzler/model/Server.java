@@ -17,7 +17,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 
     public Server() throws RemoteException {
         super();
-        File data = new File("Data.txt");
+        File data = new File("QuizData.txt");
         if (data.exists()) {
             try(ObjectInputStream input = new ObjectInputStream(new FileInputStream(data))) {
                 quizzes = (ArrayList<Quiz>) input.readObject();
@@ -56,6 +56,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         for (Quiz quiz: quizzes) {
             if (quiz.getName().equals(name)) {
                 quizzes.remove(quiz);
+                flush();
                 return true;
             }
         }
