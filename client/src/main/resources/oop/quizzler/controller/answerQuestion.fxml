@@ -14,8 +14,6 @@
       <RadioButton fx:id="button2" layoutX="267.0" layoutY="167.0" mnemonicParsing="false" />
       <RadioButton fx:id="button3" layoutX="41.0" layoutY="244.0" mnemonicParsing="false" />
       <RadioButton fx:id="button4" layoutX="267.0" layoutY="244.0" mnemonicParsing="false" />
-       <TextField fx:id="answerText" layoutX="58.0" layoutY="52.0" prefHeight="26.0" prefWidth="334.0" stylesheets="@style.css" />
+       <TextField fx:id="answerText" layoutX="57.0" layoutY="187.0" prefHeight="26.0" prefWidth="334.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>
-
-

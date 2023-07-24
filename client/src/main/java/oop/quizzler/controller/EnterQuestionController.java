@@ -78,6 +78,12 @@ public class EnterQuestionController implements Initializable{
         };
     }
 
+    @FXML
+    private void switchToSelectQuestionType() throws IOException {
+        StartQuizzler.setRoot("selectQuestionType");
+    }
+
+
     private void addMCQuestionToQuiz() {
 
         if (button1.isSelected()) {

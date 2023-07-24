@@ -47,6 +47,7 @@ public class SelectQuizController implements Initializable{
         
     }
 
+    @FXML
     private void getItem(){
         try {
             connection = StartQuizzler.getConnection();

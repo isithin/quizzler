@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import oop.quizzler.model.Connection;
 import oop.quizzler.model.DisplayType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
@@ -36,6 +37,35 @@ public class SelectQuestionTypeController {
                 alert.close();
             }
         }   
+    }
+
+    @FXML
+    private void saveAndQuit() throws IOException{
+        if (StartQuizzler.getNewQuiz().getQuestionsInt() == 0) {
+            Alert alert = new Alert(AlertType.NONE, "Please add at least one question", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else {
+            Connection connection = StartQuizzler.getConnection();
+            if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
+                Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.OK) {
+                    alert.close();
+                    StartQuizzler.setRoot("menu");
+                }
+            } else {
+                Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.OK) {
+                    alert.close();
+                }
+            }
+        }
     }
 
     @FXML
