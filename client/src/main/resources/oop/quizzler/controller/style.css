@@ -1,0 +1,29 @@
+.root{
+    -fx-background-image: url(QUIZZLER1.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+  }
+  
+  .label{
+     -fx-font-size: 20pt;
+     -fx-text-fill: "white";
+     -fx-alignment: center;
+     -fx-layoutX: 300;
+     -fx-layoutX: 200;
+  }
+  
+  .button{
+     -fx-front-size: 60pt;
+     -fx-background-color: #00008B;
+     -fx-text-fill: "white";
+     -fx-alignment: center;
+  }
+  
+  .button:hover{
+     -fx-background-color: #67d5fa;
+  }
+  
+  .button:pressed{
+     -fx-background-color: #67d5fa;
+  }
+ 

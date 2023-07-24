@@ -5,11 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.NamingQuizController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.NamingQuizController">
    <children>
-      <Label layoutX="229.0" layoutY="40.0" text="Enter a name for your Quiz" />
-      <Button layoutX="117.0" layoutY="311.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
-      <Button layoutX="431.0" layoutY="311.0" mnemonicParsing="false" text="Continue" onAction="#switchToEditor"/>
-      <TextField fx:id="quizName" layoutX="180.0" layoutY="98.0" prefHeight="25.0" prefWidth="239.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="77.0" prefHeight="39.0" prefWidth="446.0" text="Enter a name for your Quiz" />
+      <Button layoutX="103.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
+      <Button layoutX="277.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToEditor" text="Continue" />
+      <TextField fx:id="quizName" layoutX="103.0" layoutY="174.0" prefHeight="25.0" prefWidth="239.0" />
    </children>
 </AnchorPane>

@@ -6,15 +6,15 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.SelectQuestionTypeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.SelectQuestionTypeController">
    <children>
-      <Label layoutX="249.0" layoutY="53.0" text="Select a Questiontype:" />
-      <Button layoutX="403.0" layoutY="307.0" mnemonicParsing="false" onAction="#switchToEnterQuestion" text="Continue" />
-      <Button layoutX="145.0" layoutY="307.0" mnemonicParsing="false" onAction="#quit" text="Quit" />
-      <RadioButton fx:id="mc" layoutX="241.0" layoutY="115.0" mnemonicParsing="false" text="Multiple Coice">
+      <Label layoutX="-1.0" layoutY="52.0" prefHeight="39.0" prefWidth="445.0" text="Select a Questiontype:" />
+      <Button layoutX="300.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToEnterQuestion" text="Continue" />
+      <Button layoutX="132.0" layoutY="344.0" mnemonicParsing="false" onAction="#quit" text="Quit" />
+      <RadioButton fx:id="mc" layoutX="172.0" layoutY="144.0" mnemonicParsing="false" styleClass="button" stylesheets="@style.css" text="Multiple Coice">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="tf" layoutX="241.0" layoutY="182.0" mnemonicParsing="false" text="Text Field" toggleGroup="$group" />
+      <RadioButton fx:id="tf" layoutX="172.0" layoutY="191.0" mnemonicParsing="false" styleClass="button" stylesheets="@style.css" text="Text Field" toggleGroup="$group" />
    </children>
 </AnchorPane>
