@@ -1,5 +1,5 @@
 package oop.quizzler.model;
 
 public enum DisplayType {
-    MC, TF
+    MC, TF, SC
 }

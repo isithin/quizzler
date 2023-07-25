@@ -22,7 +22,7 @@ import oop.quizzler.model.Quiz;
 
 public class AnswerQuestionController implements Initializable{
    //Views
-    @FXML private ToggleGroup group;
+    private ToggleGroup group;
     @FXML private RadioButton button1;
     @FXML private RadioButton button2;
     @FXML private RadioButton button3;
@@ -34,6 +34,7 @@ public class AnswerQuestionController implements Initializable{
     private Quiz activeQuiz = StartQuizzler.getActiveQuiz();
     private Question question;
     private ArrayList<String> answer = new ArrayList<String>();
+
 
     @FXML
     private void nextQuestion() throws IOException {
@@ -75,6 +76,9 @@ public class AnswerQuestionController implements Initializable{
             if (button4.isSelected()) {
                 answer.add(button4.getText());        
             }
+        } else if (displayType.equals(DisplayType.SC)) {
+            RadioButton selected = (RadioButton) group.getSelectedToggle();
+                answer.add(selected.getText());
         } else {
             Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
             alert.showAndWait();
@@ -107,6 +111,18 @@ public class AnswerQuestionController implements Initializable{
             button3.setVisible(false);
             button4.setVisible(false);
             answerText.setVisible(true);
+        } else if (question.getDisplayType().equals(DisplayType.SC)) {
+            group = new ToggleGroup();
+            questionText.setText(question.getQuestion());
+            button1.setText("true");
+            button2.setText("false");
+            button1.setToggleGroup(group);
+            button2.setToggleGroup(group);
+            button1.setVisible(true);
+            button2.setVisible(true);
+            button3.setVisible(false);
+            button4.setVisible(false);
+            answerText.setVisible(false);
         } else {
             Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
             alert.showAndWait();
