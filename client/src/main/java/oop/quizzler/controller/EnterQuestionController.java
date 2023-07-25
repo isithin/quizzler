@@ -11,16 +11,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import oop.quizzler.model.Connection;
 import oop.quizzler.model.DisplayType;
 import oop.quizzler.model.MCQuestion;
+import oop.quizzler.model.SCQuestion;
 import oop.quizzler.model.TFQuestion;
 
 public class EnterQuestionController implements Initializable{
     
     private ArrayList<String> correctAnswers = new ArrayList<String>();
     private DisplayType displayType = StartQuizzler.getDisplayType();
+    private ToggleGroup group;
 
     //Views
     @FXML private TextField answer1;
@@ -55,6 +58,8 @@ public class EnterQuestionController implements Initializable{
             addMCQuestionToQuiz();
         } else if (DisplayType.TF == displayType){
             addTFQuestionToQuiz();
+        } else if (DisplayType.SC == displayType){
+            addSCQuestionToQuiz();
         } else {
             System.out.println("Error: DisplayType not set");
         }
@@ -149,6 +154,28 @@ public class EnterQuestionController implements Initializable{
         }
     }
 
+    public void addSCQuestionToQuiz() {
+        RadioButton selected = (RadioButton) group.getSelectedToggle();
+        correctAnswers.add(selected.getText());
+        String questionText = questionField.getText();
+        if (correctAnswers.size() == 0) {
+            Alert alert = new Alert(AlertType.NONE, "Please select at least one correct answer", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        } else if (questionText.equals("")) {
+            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        }
+        SCQuestion question = new SCQuestion(questionText, correctAnswers);
+        StartQuizzler.getNewQuiz().setQuestion(question);
+        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions()); 
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (displayType == DisplayType.MC) {
@@ -162,7 +189,7 @@ public class EnterQuestionController implements Initializable{
             button4.setVisible(true);
             correctAnswerText.setVisible(false);
             description.setText("Please enter possible answers and select the correct answers.");
-        } else {
+        } else if (displayType == DisplayType.TF) {
             answer1.setVisible(false);
             answer2.setVisible(false);
             answer3.setVisible(false);
@@ -173,8 +200,22 @@ public class EnterQuestionController implements Initializable{
             button4.setVisible(false);
             correctAnswerText.setVisible(true);
             description.setText("Please enter the corrrect answer.");
+        } else if (displayType == DisplayType.SC) {
+            group = new ToggleGroup();
+            button1.setVisible(true);
+            button2.setVisible(true);
+            button1.setText("true");
+            button2.setText("false");
+            button1.setToggleGroup(group);
+            button2.setToggleGroup(group);
+            answer1.setVisible(false);
+            answer2.setVisible(false);
+            answer3.setVisible(false);
+            answer4.setVisible(false);
+            button3.setVisible(false);
+            button4.setVisible(false);
+            correctAnswerText.setVisible(false);
+            description.setText("Please select the corrrect answer.");
         }
-
-        
     }   
 }

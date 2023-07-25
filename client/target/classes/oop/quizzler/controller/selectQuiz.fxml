@@ -10,7 +10,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="482.0" text="Select a Quiz" />
       <Button layoutX="93.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
       <Button layoutX="219.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToEnterUsername" text="PLAY" />
-      <Button layoutX="341.0" layoutY="344.0" mnemonicParsing="false" onAction="#getItem" text="DELETE" />
+      <Button layoutX="341.0" layoutY="344.0" mnemonicParsing="false" onAction="#deleteQuiz" text="DELETE" />
       <ListView fx:id="quizListView" layoutX="141.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

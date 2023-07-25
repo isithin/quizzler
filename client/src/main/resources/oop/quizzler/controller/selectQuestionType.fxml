@@ -16,6 +16,7 @@
             <ToggleGroup fx:id="group" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="tf" layoutX="172.0" layoutY="191.0" mnemonicParsing="false" styleClass="button" stylesheets="@style.css" text="Text Field" toggleGroup="$group" />
+      <RadioButton fx:id="sc" layoutX="172.0" layoutY="240.0" mnemonicParsing="false" styleClass="button" stylesheets="@style.css" text="True or False" toggleGroup="$group" />
       <Button layoutX="156.0" layoutY="344.0" mnemonicParsing="false" onAction="#saveAndQuit" text="Save all and quit" />
    </children>
 </AnchorPane>

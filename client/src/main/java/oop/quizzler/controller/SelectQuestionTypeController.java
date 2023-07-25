@@ -16,6 +16,7 @@ public class SelectQuestionTypeController {
     //Views
     @FXML private RadioButton mc;
     @FXML private RadioButton tf;
+    @FXML private RadioButton sc;
     @FXML private ToggleGroup group;
 
     @FXML
@@ -28,6 +29,10 @@ public class SelectQuestionTypeController {
             }
             if (selected.getId().equals(tf.getId())) {
                 StartQuizzler.setDisplayType(DisplayType.TF);
+                StartQuizzler.setRoot("enterQuestion");
+            }
+            if (selected.getId().equals(sc.getId())) {
+                StartQuizzler.setDisplayType(DisplayType.SC);
                 StartQuizzler.setRoot("enterQuestion");
             }
         } else {
