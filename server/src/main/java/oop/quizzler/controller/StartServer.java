@@ -5,9 +5,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
-import javax.crypto.spec.IvParameterSpec;
-
 import oop.quizzler.model.Server;
 
 public class StartServer {
