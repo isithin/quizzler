@@ -13,7 +13,7 @@ public class StartServer {
             InetAddress IP = InetAddress.getLocalHost();
             Registry registry = LocateRegistry.createRegistry(1099);
             registry.rebind("Quizzler", new Server());
-            System.out.println("Server running.\nIP:"+ IP.getHostAddress() + "\nPORT: " + Registry.REGISTRY_PORT);
+            System.out.println("Server running.\nIP: "+ IP.getHostAddress() + "\nPORT: " + Registry.REGISTRY_PORT);
         } catch(RemoteException e) {
             e.printStackTrace();
             System.out.println("Failed");

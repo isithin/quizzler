@@ -11,7 +11,7 @@ import oop.quizzler.model.DisplayType;
 import java.io.IOException;
 import oop.quizzler.model.Quiz;
 
-public class StartQuizzler extends Application {
+public class InitQuizzler extends Application {
 
     private static Scene scene;
     private Stage stage;
@@ -40,48 +40,48 @@ public class StartQuizzler extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StartQuizzler.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(InitQuizzler.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
     public static void createNewQuiz(String name) {
-        StartQuizzler.newQuiz = new Quiz(name);
+        InitQuizzler.newQuiz = new Quiz(name);
     }
 
     public static Quiz getNewQuiz() {
-        return StartQuizzler.newQuiz;
+        return InitQuizzler.newQuiz;
     }
 
     public static void createNewAttempt(String username, Quiz activeQuiz) {
-        StartQuizzler.attempt = new Attempt(username, activeQuiz);
+        InitQuizzler.attempt = new Attempt(username, activeQuiz);
     }
 
     public static Attempt getAttempt() {
-        return StartQuizzler.attempt;
+        return InitQuizzler.attempt;
     }
 
     public static void setActiveQuiz(Quiz activeQuiz) {
-        StartQuizzler.activeQuiz = activeQuiz;
+        InitQuizzler.activeQuiz = activeQuiz;
     }
 
     public static Quiz getActiveQuiz() {
-        return StartQuizzler.activeQuiz;
+        return InitQuizzler.activeQuiz;
     }
 
     public static void setConnection(Connection connection) {
-        StartQuizzler.connection = connection;
+        InitQuizzler.connection = connection;
     }
 
     public static Connection getConnection() {
-        return StartQuizzler.connection;
+        return InitQuizzler.connection;
     }
 
     public static void setDisplayType(DisplayType displayType) {
-        StartQuizzler.displayType = displayType;
+        InitQuizzler.displayType = displayType;
     }
 
     public static DisplayType getDisplayType() {
-        return StartQuizzler.displayType;
+        return InitQuizzler.displayType;
     }
 
     public static void main(String[] args) {

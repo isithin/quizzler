@@ -31,8 +31,8 @@ public class AnswerQuestionController implements Initializable{
     @FXML private Label questionText;
 
     private ToggleGroup group;
-    private Attempt attempt = StartQuizzler.getAttempt();
-    private Quiz activeQuiz = StartQuizzler.getActiveQuiz();
+    private Attempt attempt = InitQuizzler.getAttempt();
+    private Quiz activeQuiz = InitQuizzler.getActiveQuiz();
     private Question question;
     private ArrayList<String> answer = new ArrayList<String>();
 
@@ -51,13 +51,13 @@ public class AnswerQuestionController implements Initializable{
                 alert.close();
             }
         }
-        if (attempt.getCount() < StartQuizzler.getActiveQuiz().getQuestionsInt()-1) {
+        if (attempt.getCount() < InitQuizzler.getActiveQuiz().getQuestionsInt()-1) {
             attempt.setCount(attempt.getCount()+1);
-            StartQuizzler.setRoot("answerQuestion");
+            InitQuizzler.setRoot("answerQuestion");
         } else {
-            Connection connection = StartQuizzler.getConnection();
+            Connection connection = InitQuizzler.getConnection();
             connection.addHighscore(attempt, activeQuiz.getName());
-            StartQuizzler.setRoot("viewScore");
+            InitQuizzler.setRoot("viewScore");
         }
     }
 

@@ -21,13 +21,13 @@ public class SelectQuizController implements Initializable{
 
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     @FXML
     private void switchToEnterUsername() throws IOException{
-        StartQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
-        StartQuizzler.setRoot("enterUsername");
+        InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+        InitQuizzler.setRoot("enterUsername");
     }
 
     @FXML
@@ -48,7 +48,7 @@ public class SelectQuizController implements Initializable{
     @FXML
     private void getItem(){
         try {
-            connection = StartQuizzler.getConnection();
+            connection = InitQuizzler.getConnection();
             quizList = Arrays.asList(connection.getAllQuizNamesFromServer());   
         } catch(Exception e) {
             e.printStackTrace();

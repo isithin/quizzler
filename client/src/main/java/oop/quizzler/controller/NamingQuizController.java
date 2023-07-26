@@ -18,7 +18,7 @@ public class NamingQuizController {
 
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     @FXML
@@ -30,7 +30,7 @@ public class NamingQuizController {
                 alert.close();
             }
         } else {
-            Connection connection = StartQuizzler.getConnection();
+            Connection connection = InitQuizzler.getConnection();
             List<String> quizList = Arrays.asList(connection.getAllQuizNamesFromServer());
             if (quizList.contains(quizName.getText())) {
                 Alert alert = new Alert(AlertType.NONE, "Quizname already exists", ButtonType.OK);
@@ -40,8 +40,8 @@ public class NamingQuizController {
                 }
             } else {
                 try {
-                    StartQuizzler.createNewQuiz(quizName.getText());
-                    StartQuizzler.setRoot("selectQuestionType");
+                    InitQuizzler.createNewQuiz(quizName.getText());
+                    InitQuizzler.setRoot("selectQuestionType");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

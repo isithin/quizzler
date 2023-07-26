@@ -13,7 +13,7 @@ public class EnterUsernameController {
 
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     @FXML
@@ -26,8 +26,8 @@ public class EnterUsernameController {
             }
         } else {
             try {
-                StartQuizzler.createNewAttempt(username.getText(), StartQuizzler.getActiveQuiz()); 
-                StartQuizzler.setRoot("answerQuestion");
+                InitQuizzler.createNewAttempt(username.getText(), InitQuizzler.getActiveQuiz()); 
+                InitQuizzler.setRoot("answerQuestion");
             } catch (IOException e) {
                 e.printStackTrace();
             }

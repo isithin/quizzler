@@ -21,13 +21,13 @@ public class ViewHighscoresController implements Initializable{
 
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     private void getItem(){
         try {
-            Connection connection = StartQuizzler.getConnection();
-            attemptList = connection.getQuizFromServer(StartQuizzler.getActiveQuiz().getName()).getAttempts();
+            Connection connection = InitQuizzler.getConnection();
+            attemptList = connection.getQuizFromServer(InitQuizzler.getActiveQuiz().getName()).getAttempts();
             
         } catch(Exception e) {
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class ViewHighscoresController implements Initializable{
         getItem();
         List<String> highscoreList = new ArrayList<String>();
         for(Attempt attempt: attemptList) {
-            highscoreList.add(attempt.getUsername() + ": " + attempt.getScore() + "/" + StartQuizzler.getActiveQuiz().getQuestionsInt());
+            highscoreList.add(attempt.getUsername() + ": " + attempt.getScore() + "/" + InitQuizzler.getActiveQuiz().getQuestionsInt());
         }
         scoreListView.setItems(FXCollections.observableList(highscoreList));
     }   

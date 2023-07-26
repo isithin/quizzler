@@ -13,18 +13,18 @@ public class ViewScoreController implements Initializable{
 
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     @FXML
     private void switchToHighscores() throws IOException {
-        StartQuizzler.setRoot("viewHighscores");
+        InitQuizzler.setRoot("viewHighscores");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        int score = StartQuizzler.getAttempt().getScore();
-        int numberOfQuestions = StartQuizzler.getActiveQuiz().getQuestionsInt();
+        int score = InitQuizzler.getAttempt().getScore();
+        int numberOfQuestions = InitQuizzler.getActiveQuiz().getQuestionsInt();
         scoreResults.setText(score + "/" + numberOfQuestions);
        
     }   

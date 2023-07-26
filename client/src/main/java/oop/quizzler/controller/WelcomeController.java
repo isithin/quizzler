@@ -13,12 +13,12 @@ public class WelcomeController {
     @FXML
     private void switchToMenu() throws IOException {
         Connection connection = new Connection("127.0.0.1", 1099);
-        StartQuizzler.setConnection(connection);
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setConnection(connection);
+        InitQuizzler.setRoot("menu");
     }
 
     @FXML
     private void switchToEnterIp() throws IOException {
-        StartQuizzler.setRoot("enterIp");
+        InitQuizzler.setRoot("enterIp");
     }
 }

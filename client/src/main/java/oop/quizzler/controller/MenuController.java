@@ -13,17 +13,17 @@ public class MenuController {
     
     @FXML
     private void switchToSelectQuiz() throws IOException {
-        StartQuizzler.setRoot("selectQuiz");
+        InitQuizzler.setRoot("selectQuiz");
     }
 
     @FXML
     private void switchToNamingQuiz() throws IOException {
-        StartQuizzler.setRoot("namingQuiz");
+        InitQuizzler.setRoot("namingQuiz");
     }
 
     @FXML
     private void switchToWelcome() throws IOException {
-        StartQuizzler.setRoot("welcome");
+        InitQuizzler.setRoot("welcome");
     }
 
 }

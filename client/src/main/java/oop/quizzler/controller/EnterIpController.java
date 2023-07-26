@@ -17,7 +17,7 @@ public class EnterIpController {
 
     @FXML
     private void switchToWelcome() throws IOException {
-        StartQuizzler.setRoot("welcome");
+        InitQuizzler.setRoot("welcome");
     }
 
     @FXML
@@ -30,7 +30,7 @@ public class EnterIpController {
             }
         } else {
                 connection = new Connection(ip.getText(), Integer.parseInt(port.getText()));
-                StartQuizzler.setConnection(connection);
+                InitQuizzler.setConnection(connection);
         }
         if (connection.getRemoteInterface() == null) {
             Alert alert = new Alert(AlertType.NONE, "Connection failed, please try again", ButtonType.OK);
@@ -39,7 +39,7 @@ public class EnterIpController {
                 alert.close();
             }
         } else {
-            StartQuizzler.setRoot("selectQuiz");
+            InitQuizzler.setRoot("selectQuiz");
         }
     }
 }

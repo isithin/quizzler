@@ -24,15 +24,15 @@ public class SelectQuestionTypeController {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
         if (selected != null){
             if (selected.getId().equals(mc.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.MC);
+                InitQuizzler.setDisplayType(DisplayType.MC);
             }
             if (selected.getId().equals(tf.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.TF);
+                InitQuizzler.setDisplayType(DisplayType.TF);
             }
             if (selected.getId().equals(sc.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.SC);
+                InitQuizzler.setDisplayType(DisplayType.SC);
             }
-            StartQuizzler.setRoot("enterQuestion");
+            InitQuizzler.setRoot("enterQuestion");
         } else {
            alerting("Please select a Questiontype");
         }   
@@ -40,17 +40,17 @@ public class SelectQuestionTypeController {
 
     @FXML
     private void saveAndQuit() throws IOException{
-        if (StartQuizzler.getNewQuiz().getQuestionsInt() == 0) {
+        if (InitQuizzler.getNewQuiz().getQuestionsInt() == 0) {
             alerting("Please add at least one question");
         } else {
-            Connection connection = StartQuizzler.getConnection();
-            if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
+            Connection connection = InitQuizzler.getConnection();
+            if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
                 Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.OK) {
                     alert.close();
-                    StartQuizzler.setRoot("menu");
+                    InitQuizzler.setRoot("menu");
                 }
             } else {
                 alerting("Error: Quiz not added");
@@ -60,7 +60,7 @@ public class SelectQuestionTypeController {
 
     @FXML
     private void quit() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
     public void alerting(String message) {
