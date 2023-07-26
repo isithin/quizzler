@@ -40,15 +40,13 @@ public class EnterQuestionController implements Initializable{
 
     @FXML
     private void createMore() throws IOException{
-        //test ob was angeklickt wurde fehlt noch
         if (DisplayType.MC == displayType) {
             addMCQuestionToQuiz();
         } else if (DisplayType.TF == displayType){
             addTFQuestionToQuiz();
-        } else {
-            System.out.println("Error: DisplayType not set");
+        } else if (DisplayType.SC == displayType){
+            addSCQuestionToQuiz();
         }
-        StartQuizzler.setRoot("selectQuestionType");
     }
 
     @FXML
@@ -89,7 +87,7 @@ public class EnterQuestionController implements Initializable{
     }
 
 
-    private void addMCQuestionToQuiz() {
+    private void addMCQuestionToQuiz() throws IOException{
 
         if (button1.isSelected()) {
             correctAnswers.add(answer1.getText());
@@ -105,75 +103,52 @@ public class EnterQuestionController implements Initializable{
         }
         String[] answers = {answer1.getText(), answer2.getText(), answer3.getText(), answer4.getText()};
         String questionText = questionField.getText();
-        //i guess we want to generate custom exceptions for this (otherwise the "selectQuestionType" window will load)
-        if (correctAnswers.size() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please select at least one correct answer", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else if (answers[0].equals("") || answers[1].equals("") || answers[2].equals("") || answers[3].equals("")) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter all answers", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else if (questionText.equals("")) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+        if (correctAnswers.size() == 0 || answers[0].equals("") || answers[1].equals("") || answers[2].equals("") || answers[3].equals("") || questionText.equals("")) {
+            alerting("Question not complete. Please fill out everything.");
         } else {
             MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
             StartQuizzler.getNewQuiz().setQuestion(question);
+            //for debugging
             System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+            StartQuizzler.setRoot("selectQuestionType");
         }
     }
 
-    private void addTFQuestionToQuiz() {
+    private void addTFQuestionToQuiz() throws IOException{
         correctAnswers.add(correctAnswerText.getText());
         String questionText = questionField.getText();
-        //custom exceptions here also?
-        if (correctAnswers.size() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter a correct answer", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else if (questionText.equals("")) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+        if (correctAnswers.size() == 0 || questionText.equals("")) {
+            alerting("Question not complete. Please make sure you entered a question and the correct answer.");
         } else {
             TFQuestion question = new TFQuestion(questionText, correctAnswers);
             StartQuizzler.getNewQuiz().setQuestion(question);
+            //for debugging
             System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+            StartQuizzler.setRoot("selectQuestionType");
         }
     }
 
-    public void addSCQuestionToQuiz() {
+    public void addSCQuestionToQuiz() throws IOException{
         RadioButton selected = (RadioButton) group.getSelectedToggle();
         correctAnswers.add(selected.getText());
         String questionText = questionField.getText();
-        if (correctAnswers.size() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please select at least one correct answer", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else if (questionText.equals("")) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter a question", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        }
+        if (correctAnswers.size() == 0 || questionText.equals("")) {
+            alerting("Question not complete. Please make sure you entered a question and selected the correct answer.");
+        } else {
         SCQuestion question = new SCQuestion(questionText, correctAnswers);
         StartQuizzler.getNewQuiz().setQuestion(question);
+        //for debugging
         System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions()); 
+        StartQuizzler.setRoot("selectQuestionType");
+        }
+    }
+
+    public void alerting(String message) {
+        Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
     }
 
     @Override
