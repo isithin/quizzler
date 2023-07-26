@@ -21,8 +21,8 @@ import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.Quiz;
 
 public class AnswerQuestionController implements Initializable{
-   //Views
-    private ToggleGroup group;
+   
+    //Views
     @FXML private RadioButton button1;
     @FXML private RadioButton button2;
     @FXML private RadioButton button3;
@@ -30,6 +30,7 @@ public class AnswerQuestionController implements Initializable{
     @FXML private TextField answerText;
     @FXML private Label questionText;
 
+    private ToggleGroup group;
     private Attempt attempt = StartQuizzler.getAttempt();
     private Quiz activeQuiz = StartQuizzler.getActiveQuiz();
     private Question question;
@@ -79,19 +80,13 @@ public class AnswerQuestionController implements Initializable{
         } else if (displayType.equals(DisplayType.SC)) {
             RadioButton selected = (RadioButton) group.getSelectedToggle();
                 answer.add(selected.getText());
-        } else {
-            Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
         }
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        question = StartQuizzler.getActiveQuiz().getQuestions().get(attempt.getCount());
+        question = activeQuiz.getQuestions().get(attempt.getCount());
 
         if (question.getDisplayType().equals(DisplayType.MC)) {
             button1.setText((((MCQuestion) question).getAnswers())[0]);
@@ -123,12 +118,6 @@ public class AnswerQuestionController implements Initializable{
             button3.setVisible(false);
             button4.setVisible(false);
             answerText.setVisible(false);
-        } else {
-            Alert alert = new Alert(AlertType.NONE, "Error: Unknown Displaytype", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
         }   
     }   
 }

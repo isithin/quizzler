@@ -35,6 +35,9 @@ public class EnterIpController {
         if (connection.getRemoteInterface() == null) {
             Alert alert = new Alert(AlertType.NONE, "Connection failed, please try again", ButtonType.OK);
             alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
         } else {
             StartQuizzler.setRoot("selectQuiz");
         }
