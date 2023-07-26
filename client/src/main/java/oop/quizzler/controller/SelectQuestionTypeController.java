@@ -25,33 +25,23 @@ public class SelectQuestionTypeController {
         if (selected != null){
             if (selected.getId().equals(mc.getId())) {
                 StartQuizzler.setDisplayType(DisplayType.MC);
-                StartQuizzler.setRoot("enterQuestion");
             }
             if (selected.getId().equals(tf.getId())) {
                 StartQuizzler.setDisplayType(DisplayType.TF);
-                StartQuizzler.setRoot("enterQuestion");
             }
             if (selected.getId().equals(sc.getId())) {
                 StartQuizzler.setDisplayType(DisplayType.SC);
-                StartQuizzler.setRoot("enterQuestion");
             }
+            StartQuizzler.setRoot("enterQuestion");
         } else {
-            Alert alert = new Alert(AlertType.NONE, "Please select a Questiontype", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+           alerting("Please select a Questiontype");
         }   
     }
 
     @FXML
     private void saveAndQuit() throws IOException{
         if (StartQuizzler.getNewQuiz().getQuestionsInt() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please add at least one question", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+            alerting("Please add at least one question");
         } else {
             Connection connection = StartQuizzler.getConnection();
             if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
@@ -63,12 +53,7 @@ public class SelectQuestionTypeController {
                     StartQuizzler.setRoot("menu");
                 }
             } else {
-                Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
-                alert.showAndWait();
-
-                if (alert.getResult() == ButtonType.OK) {
-                    alert.close();
-                }
+                alerting("Error: Quiz not added");
             }
         }
     }
@@ -76,6 +61,14 @@ public class SelectQuestionTypeController {
     @FXML
     private void quit() throws IOException {
         StartQuizzler.setRoot("menu");
+    }
+
+    public void alerting(String message) {
+        Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
     }
 
     

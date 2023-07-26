@@ -31,11 +31,10 @@ public class SelectQuizController implements Initializable{
     }
 
     @FXML
-    private void deleteQuiz() throws IOException{
+    private void deleteQuiz() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Quiz");
         alert.setHeaderText("Are you sure you want to delete this quiz?");
-
         if (alert.showAndWait().get().getText().equals("OK")) {
             connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
             getItem();
@@ -43,8 +42,7 @@ public class SelectQuizController implements Initializable{
             alert.close();
         } else {
             alert.close();
-        }
-        
+        }      
     }
 
     @FXML
