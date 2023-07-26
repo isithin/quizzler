@@ -41,44 +41,47 @@ public class EnterQuestionController implements Initializable{
     @FXML
     private void createMore() throws IOException{
         if (DisplayType.MC == displayType) {
-            addMCQuestionToQuiz();
+            if (addMCQuestionToQuiz()) {
+                StartQuizzler.setRoot("selectQuestionType");
+            } else {
+                alerting("Question not complete.\nPlease fill out everything.");
+            }
         } else if (DisplayType.TF == displayType){
-            addTFQuestionToQuiz();
+            if (addTFQuestionToQuiz()) {
+                StartQuizzler.setRoot("selectQuestionType");
+            } else {
+                alerting("Question not complete.\nPlease make sure you entered a \nquestion and the correct answer.");
+            }
         } else if (DisplayType.SC == displayType){
-            addSCQuestionToQuiz();
+            if (addSCQuestionToQuiz()) {
+                StartQuizzler.setRoot("selectQuestionType");
+            } else {
+                alerting("Question not complete.\nPlease make sure you entered a \nquestion and selected the correct answer.");
+            }
         }
     }
 
     @FXML
     private void saveAndQuit() throws IOException{
-        //test ob was angeklickt wurde fehlt noch
         if (DisplayType.MC == displayType) {
-            addMCQuestionToQuiz();
+            if (addMCQuestionToQuiz()) {
+                pushQuizToServer();
+            } else {
+                alerting("Question not complete.\nPlease fill out everything.");
+            }
         } else if (DisplayType.TF == displayType){
-            addTFQuestionToQuiz();
+            if (addTFQuestionToQuiz()) {
+                pushQuizToServer();
+            } else {
+                alerting("Question not complete.\nPlease make sure you entered a \nquestion and the correct answer.");
+            }
         } else if (DisplayType.SC == displayType){
-            addSCQuestionToQuiz();
-        } else {
-            System.out.println("Error: DisplayType not set");
+            if (addSCQuestionToQuiz()) {
+                pushQuizToServer();
+            } else {
+                alerting("Question not complete.\nPlease make sure you entered a \nquestion and selected the correct answer.");
+            }
         }
-    
-        Connection connection = StartQuizzler.getConnection();
-        if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
-            Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
-            alert.showAndWait();
-
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-                StartQuizzler.setRoot("menu");
-            }
-        } else {
-            Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
-            alert.showAndWait();
-
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        };
     }
 
     @FXML
@@ -86,9 +89,7 @@ public class EnterQuestionController implements Initializable{
         StartQuizzler.setRoot("selectQuestionType");
     }
 
-
-    private void addMCQuestionToQuiz() throws IOException{
-
+    private boolean addMCQuestionToQuiz() {
         if (button1.isSelected()) {
             correctAnswers.add(answer1.getText());
         }
@@ -104,44 +105,42 @@ public class EnterQuestionController implements Initializable{
         String[] answers = {answer1.getText(), answer2.getText(), answer3.getText(), answer4.getText()};
         String questionText = questionField.getText();
         if (correctAnswers.size() == 0 || answers[0].equals("") || answers[1].equals("") || answers[2].equals("") || answers[3].equals("") || questionText.equals("")) {
-            alerting("Question not complete. Please fill out everything.");
-        } else {
-            MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
-            StartQuizzler.getNewQuiz().setQuestion(question);
-            //for debugging
-            System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
-            StartQuizzler.setRoot("selectQuestionType");
+            return false;
         }
+        MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
+        StartQuizzler.getNewQuiz().setQuestion(question);
+        //for debugging
+        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        return true;            
     }
 
-    private void addTFQuestionToQuiz() throws IOException{
+    private boolean addTFQuestionToQuiz() throws IOException{
         correctAnswers.add(correctAnswerText.getText());
         String questionText = questionField.getText();
         if (correctAnswers.size() == 0 || questionText.equals("")) {
-            alerting("Question not complete. Please make sure you entered a question and the correct answer.");
-        } else {
-            TFQuestion question = new TFQuestion(questionText, correctAnswers);
-            StartQuizzler.getNewQuiz().setQuestion(question);
-            //for debugging
-            System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
-            StartQuizzler.setRoot("selectQuestionType");
+            return false;
         }
+        TFQuestion question = new TFQuestion(questionText, correctAnswers);
+        StartQuizzler.getNewQuiz().setQuestion(question);
+        //for debugging
+        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        return true;
     }
 
-    public void addSCQuestionToQuiz() throws IOException{
+    public boolean addSCQuestionToQuiz() throws IOException{
         RadioButton selected = (RadioButton) group.getSelectedToggle();
+        if (selected == null) {
+            return false;
+        }
         correctAnswers.add(selected.getText());
         String questionText = questionField.getText();
-        if (correctAnswers.size() == 0 || questionText.equals("")) {
-            alerting("Question not complete. Please make sure you entered a question and selected the correct answer.");
-        } else {
         SCQuestion question = new SCQuestion(questionText, correctAnswers);
         StartQuizzler.getNewQuiz().setQuestion(question);
         //for debugging
         System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions()); 
-        StartQuizzler.setRoot("selectQuestionType");
-        }
+        return true;
     }
+
 
     public void alerting(String message) {
         Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
@@ -150,6 +149,25 @@ public class EnterQuestionController implements Initializable{
                 alert.close();
             }
     }
+
+    public void pushQuizToServer() throws IOException{
+        Connection connection = StartQuizzler.getConnection();
+        if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
+            Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+                StartQuizzler.setRoot("menu");
+            }
+        } else {
+            Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
+        }
+}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
