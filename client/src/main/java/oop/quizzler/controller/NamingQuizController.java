@@ -1,10 +1,8 @@
 package oop.quizzler.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -12,6 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import oop.quizzler.model.Connection;
 
+/**
+ * FXML Controller class for namingQuiz.fxml
+ */
 public class NamingQuizController {
     //Views
     @FXML private TextField quizName;

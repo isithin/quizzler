@@ -12,8 +12,10 @@ import javafx.scene.control.ListView;
 import oop.quizzler.model.Attempt;
 import oop.quizzler.model.Connection;
 
+/**
+ * FXML Controller class for viewHighscores.fxml
+ */
 public class ViewHighscoresController implements Initializable{
-   
     //Views
     @FXML private ListView<String> scoreListView;
 
@@ -34,6 +36,9 @@ public class ViewHighscoresController implements Initializable{
         }  
     }
 
+    /**
+     * Initializes the view. Gets all the scores from the server and displays them in a listview.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getItem();

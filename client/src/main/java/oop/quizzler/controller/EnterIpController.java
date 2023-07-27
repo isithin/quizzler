@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import oop.quizzler.model.Connection;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * FXML Controller class for enterIp.fxml
+ */
 public class EnterIpController {
     //Views
     @FXML private TextField ip;

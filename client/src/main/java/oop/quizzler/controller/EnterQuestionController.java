@@ -19,6 +19,9 @@ import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.SCQuestion;
 import oop.quizzler.model.TFQuestion;
 
+/**
+ * FXML Controller class for enterQuestion.fxml
+ */
 public class EnterQuestionController implements Initializable{
     
     private ArrayList<String> correctAnswers = new ArrayList<String>();
@@ -127,7 +130,12 @@ public class EnterQuestionController implements Initializable{
         return true;
     }
 
-    public boolean addSCQuestionToQuiz() throws IOException{
+    
+    /**
+     * @return
+     * Adds the selected answer to the question and adds the question to the quiz
+     */
+    public boolean addSCQuestionToQuiz() {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
         if (selected == null) {
             return false;
@@ -141,7 +149,10 @@ public class EnterQuestionController implements Initializable{
         return true;
     }
 
-
+    /**
+     * @param message
+     * Here to avoid code duplication
+     */
     public void alerting(String message) {
         Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
             alert.showAndWait();
@@ -150,6 +161,10 @@ public class EnterQuestionController implements Initializable{
             }
     }
 
+    /**
+     * @throws IOException
+     * Pushes the quiz to the server
+     */
     public void pushQuizToServer() throws IOException{
         Connection connection = InitQuizzler.getConnection();
         if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
@@ -169,6 +184,11 @@ public class EnterQuestionController implements Initializable{
         }
 }
 
+    /**
+     * @param url
+     * @param rb
+     * Sets the initial view according to the displayType
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (displayType == DisplayType.MC) {

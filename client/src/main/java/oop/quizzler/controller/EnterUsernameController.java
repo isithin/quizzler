@@ -7,6 +7,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * FXML Controller class for enterUsername.fxml
+ */
 public class EnterUsernameController {
     //Views
     @FXML private TextField username;

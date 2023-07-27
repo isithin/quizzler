@@ -11,6 +11,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+/**
+ * FXML Controller class for selectQuestionType.fxml
+ */
 public class SelectQuestionTypeController {
 
     //Views
@@ -63,6 +66,10 @@ public class SelectQuestionTypeController {
         InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * @param message
+     * Here to avoid code duplication
+     */
     public void alerting(String message) {
         Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
             alert.showAndWait();

@@ -20,6 +20,9 @@ import oop.quizzler.model.Question;
 import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.Quiz;
 
+/**
+ * FXML Controller class for answerQuestion.fxml
+ */
 public class AnswerQuestionController implements Initializable{
    
     //Views
@@ -83,7 +86,11 @@ public class AnswerQuestionController implements Initializable{
         }
     }
 
-
+    /**
+     * @param url
+     * @param resourceBundle
+     * Initializes the view
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         question = activeQuiz.getQuestions().get(attempt.getCount());
