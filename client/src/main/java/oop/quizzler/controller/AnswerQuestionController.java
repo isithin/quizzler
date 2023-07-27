@@ -20,6 +20,9 @@ import oop.quizzler.model.Question;
 import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.Quiz;
 
+/**
+ * FXML Controller class for answerQuestion.fxml
+ */
 public class AnswerQuestionController implements Initializable{
    
     //Views
@@ -31,12 +34,18 @@ public class AnswerQuestionController implements Initializable{
     @FXML private Label questionText;
 
     private ToggleGroup group;
-    private Attempt attempt = StartQuizzler.getAttempt();
-    private Quiz activeQuiz = StartQuizzler.getActiveQuiz();
+    private Attempt attempt = InitQuizzler.getAttempt();
+    private Quiz activeQuiz = InitQuizzler.getActiveQuiz();
     private Question question;
     private ArrayList<String> answer = new ArrayList<String>();
 
 
+    /**
+     * @throws IOException
+     * Collects and checks the given answer. 
+     * Switches to the next question. 
+     * If there are no more questions, it will switch to the viewScore view.
+     */
     @FXML
     private void nextQuestion() throws IOException {
         collectAnswers(question.getDisplayType());
@@ -51,16 +60,20 @@ public class AnswerQuestionController implements Initializable{
                 alert.close();
             }
         }
-        if (attempt.getCount() < StartQuizzler.getActiveQuiz().getQuestionsInt()-1) {
+        if (attempt.getCount() < InitQuizzler.getActiveQuiz().getQuestionsInt()-1) {
             attempt.setCount(attempt.getCount()+1);
-            StartQuizzler.setRoot("answerQuestion");
+            InitQuizzler.setRoot("answerQuestion");
         } else {
-            Connection connection = StartQuizzler.getConnection();
+            Connection connection = InitQuizzler.getConnection();
             connection.addHighscore(attempt, activeQuiz.getName());
-            StartQuizzler.setRoot("viewScore");
+            InitQuizzler.setRoot("viewScore");
         }
     }
 
+    /**
+     * @param displayType
+     * Collects the answers based on the displayType
+     */
     private void collectAnswers(DisplayType displayType) {
         if (displayType.equals(DisplayType.TF)) {
             answer.add(answerText.getText());
@@ -83,7 +96,11 @@ public class AnswerQuestionController implements Initializable{
         }
     }
 
-
+    /**
+     * @param url
+     * @param resourceBundle
+     * Initializes the view
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         question = activeQuiz.getQuestions().get(attempt.getCount());

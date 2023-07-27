@@ -4,6 +4,9 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * FXML Controller class for menu.fxml
+ */
 public class MenuController {
 
     //Views
@@ -11,19 +14,31 @@ public class MenuController {
     @FXML private Button create;
     @FXML private Button back;
     
+    /**
+     * @throws IOException
+     * Switches to the selectQuiz view.
+     */
     @FXML
     private void switchToSelectQuiz() throws IOException {
-        StartQuizzler.setRoot("selectQuiz");
+        InitQuizzler.setRoot("selectQuiz");
     }
 
+    /**
+     * @throws IOException
+     * Switches to the namingQuiz view.
+     */
     @FXML
     private void switchToNamingQuiz() throws IOException {
-        StartQuizzler.setRoot("namingQuiz");
+        InitQuizzler.setRoot("namingQuiz");
     }
 
+    /**
+     * @throws IOException
+     * Switches to the welcome view.
+     */
     @FXML
     private void switchToWelcome() throws IOException {
-        StartQuizzler.setRoot("welcome");
+        InitQuizzler.setRoot("welcome");
     }
 
 }

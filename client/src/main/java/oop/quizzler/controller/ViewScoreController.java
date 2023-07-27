@@ -7,24 +7,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
+/**
+ * FXML Controller class for viewScore.fxml
+ */
 public class ViewScoreController implements Initializable{
     //Views
     @FXML private Label scoreResults;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * @throws IOException
+     * Switches to the highscores view.
+     */
     @FXML
     private void switchToHighscores() throws IOException {
-        StartQuizzler.setRoot("viewHighscores");
+        InitQuizzler.setRoot("viewHighscores");
     }
 
+    /**
+     * Initializes the view. Gets the score from the attempt and displays it.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        int score = StartQuizzler.getAttempt().getScore();
-        int numberOfQuestions = StartQuizzler.getActiveQuiz().getQuestionsInt();
+        int score = InitQuizzler.getAttempt().getScore();
+        int numberOfQuestions = InitQuizzler.getActiveQuiz().getQuestionsInt();
         scoreResults.setText(score + "/" + numberOfQuestions);
        
     }   

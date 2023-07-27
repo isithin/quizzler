@@ -12,9 +12,17 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 
+/**
+ * Class that represents the server. (extends UnicastRemoteObject) (implements RemoteInterface)
+ */
 public class Server extends UnicastRemoteObject implements RemoteInterface {
     private ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
 
+    /**
+     * @throws RemoteException
+     * Constructor for the server. 
+     * Loads all quizzes from QuizData.txt into quizzes variable.
+     */
     public Server() throws RemoteException {
         super();
         File data = new File("QuizData.txt");
@@ -32,6 +40,12 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         }
     }
 
+    /**
+     * @param newquiz
+     * @return
+     * adds a quiz to the server
+     */
+    @Override
     public boolean addQuiz(Quiz newquiz) {
         if (newquiz != null) {
             quizzes.add(newquiz);
@@ -43,6 +57,12 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         return false;
     }
 
+    /**
+     * @param name
+     * @return
+     * gets a quiz from the server identified by name
+     */
+    @Override
     public Quiz getQuiz(String name) {
         for (Quiz quiz: quizzes) {
             if (quiz.getName().equals(name)) {
@@ -52,6 +72,12 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         return null;
     }
 
+    /**
+     * @param name
+     * @return
+     * deletes a quiz from the server identified by name
+     */
+    @Override
     public boolean deleteQuiz(String name) {
         for (Quiz quiz: quizzes) {
             if (quiz.getName().equals(name)) {
@@ -63,6 +89,11 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         return false;
     }
 
+    /**
+     * @return
+     * gets all quiznames from the server
+     */
+    @Override
     public String[] getQuizzesString() {
         int pos = 0;
         String[] quizlist = new String[quizzes.size()];
@@ -73,6 +104,12 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         return quizlist;
     }
 
+    /**
+     * @param score
+     * @param name
+     * adds a highscore to the quiz on the server
+     */
+    @Override
     public void addHighscore(Attempt score, String name) {
         for (Quiz quiz: quizzes) {
             if (quiz.getName().equals(name)) {
@@ -82,6 +119,9 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         }
     }
 
+    /**
+     * saves the quizzes to QuizData.txt
+     */
     private void flush() {
         File data = new File("QuizData.txt");
         if (data.exists()) {
@@ -95,9 +135,6 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    
+    }    
 }
 

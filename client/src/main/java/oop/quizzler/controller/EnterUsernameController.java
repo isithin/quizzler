@@ -7,15 +7,26 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * FXML Controller class for enterUsername.fxml
+ */
 public class EnterUsernameController {
     //Views
     @FXML private TextField username;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * Switches to the answerQuestion view. Creates a new attempt.
+     * If no username is entered, an alert is shown.
+     */
     @FXML
     private void playQuiz() {
         if ((username.getText()).length() == 0) {
@@ -26,8 +37,8 @@ public class EnterUsernameController {
             }
         } else {
             try {
-                StartQuizzler.createNewAttempt(username.getText(), StartQuizzler.getActiveQuiz()); 
-                StartQuizzler.setRoot("answerQuestion");
+                InitQuizzler.createNewAttempt(username.getText(), InitQuizzler.getActiveQuiz()); 
+                InitQuizzler.setRoot("answerQuestion");
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -19,10 +19,13 @@ import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.SCQuestion;
 import oop.quizzler.model.TFQuestion;
 
+/**
+ * FXML Controller class for enterQuestion.fxml
+ */
 public class EnterQuestionController implements Initializable{
     
     private ArrayList<String> correctAnswers = new ArrayList<String>();
-    private DisplayType displayType = StartQuizzler.getDisplayType();
+    private DisplayType displayType = InitQuizzler.getDisplayType();
     private ToggleGroup group;
 
     //Views
@@ -38,29 +41,42 @@ public class EnterQuestionController implements Initializable{
     @FXML private RadioButton button4;
     @FXML private Label description;
 
+
+    /**
+     * @throws IOException
+     * Adds the question to the quiz.
+     * Switches to the selectQuestionType view.
+     * If the question is not complete, it will show an alert.
+     */
     @FXML
     private void createMore() throws IOException{
         if (DisplayType.MC == displayType) {
             if (addMCQuestionToQuiz()) {
-                StartQuizzler.setRoot("selectQuestionType");
+                InitQuizzler.setRoot("selectQuestionType");
             } else {
                 alerting("Question not complete.\nPlease fill out everything.");
             }
         } else if (DisplayType.TF == displayType){
             if (addTFQuestionToQuiz()) {
-                StartQuizzler.setRoot("selectQuestionType");
+                InitQuizzler.setRoot("selectQuestionType");
             } else {
                 alerting("Question not complete.\nPlease make sure you entered a \nquestion and the correct answer.");
             }
         } else if (DisplayType.SC == displayType){
             if (addSCQuestionToQuiz()) {
-                StartQuizzler.setRoot("selectQuestionType");
+                InitQuizzler.setRoot("selectQuestionType");
             } else {
                 alerting("Question not complete.\nPlease make sure you entered a \nquestion and selected the correct answer.");
             }
         }
     }
 
+    /**
+     * @throws IOException
+     * Adds the question to the quiz.
+     * Saves the quiz and switches to the menu view. (with pushQuizToServer() method)
+     * If the question is not complete, it will show an alert.
+     */
     @FXML
     private void saveAndQuit() throws IOException{
         if (DisplayType.MC == displayType) {
@@ -84,11 +100,20 @@ public class EnterQuestionController implements Initializable{
         }
     }
 
+    /**
+     * @throws IOException
+     * Switches to the selectQuestionType view.
+     */
     @FXML
     private void switchToSelectQuestionType() throws IOException {
-        StartQuizzler.setRoot("selectQuestionType");
+        InitQuizzler.setRoot("selectQuestionType");
     }
 
+    /**
+     * @return
+     * Special method for MC questions.
+     * Adds answer choices and the correct answers to the question and adds the question to the quiz.
+     */
     private boolean addMCQuestionToQuiz() {
         if (button1.isSelected()) {
             correctAnswers.add(answer1.getText());
@@ -108,26 +133,37 @@ public class EnterQuestionController implements Initializable{
             return false;
         }
         MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
-        StartQuizzler.getNewQuiz().setQuestion(question);
+        InitQuizzler.getNewQuiz().setQuestion(question);
         //for debugging
-        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        System.out.println("Question added "+InitQuizzler.getNewQuiz().getQuestions());
         return true;            
     }
 
-    private boolean addTFQuestionToQuiz() throws IOException{
+    /**
+     * @return
+     * Special method for TF questions.
+     * Adds the correct answer to the question and adds the question to the quiz
+     */
+    private boolean addTFQuestionToQuiz() {
         correctAnswers.add(correctAnswerText.getText());
         String questionText = questionField.getText();
         if (correctAnswers.size() == 0 || questionText.equals("")) {
             return false;
         }
         TFQuestion question = new TFQuestion(questionText, correctAnswers);
-        StartQuizzler.getNewQuiz().setQuestion(question);
+        InitQuizzler.getNewQuiz().setQuestion(question);
         //for debugging
-        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions());
+        System.out.println("Question added "+InitQuizzler.getNewQuiz().getQuestions());
         return true;
     }
 
-    public boolean addSCQuestionToQuiz() throws IOException{
+    
+    /**
+     * @return
+     * Special method for SC questions.
+     * Adds the selected answer to the question and adds the question to the quiz
+     */
+    public boolean addSCQuestionToQuiz() {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
         if (selected == null) {
             return false;
@@ -135,13 +171,16 @@ public class EnterQuestionController implements Initializable{
         correctAnswers.add(selected.getText());
         String questionText = questionField.getText();
         SCQuestion question = new SCQuestion(questionText, correctAnswers);
-        StartQuizzler.getNewQuiz().setQuestion(question);
+        InitQuizzler.getNewQuiz().setQuestion(question);
         //for debugging
-        System.out.println("Question added "+StartQuizzler.getNewQuiz().getQuestions()); 
+        System.out.println("Question added "+InitQuizzler.getNewQuiz().getQuestions()); 
         return true;
     }
 
-
+    /**
+     * @param message
+     * Here to avoid code duplication
+     */
     public void alerting(String message) {
         Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
             alert.showAndWait();
@@ -150,14 +189,18 @@ public class EnterQuestionController implements Initializable{
             }
     }
 
+    /**
+     * @throws IOException
+     * Pushes the quiz to the server and switches to the menu view.
+     */
     public void pushQuizToServer() throws IOException{
-        Connection connection = StartQuizzler.getConnection();
-        if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
+        Connection connection = InitQuizzler.getConnection();
+        if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
             Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
             alert.showAndWait();
             if (alert.getResult() == ButtonType.OK) {
                 alert.close();
-                StartQuizzler.setRoot("menu");
+                InitQuizzler.setRoot("menu");
             }
         } else {
             Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
@@ -169,6 +212,11 @@ public class EnterQuestionController implements Initializable{
         }
 }
 
+    /**
+     * @param url
+     * @param rb
+     * Sets the initial view according to the displayType
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (displayType == DisplayType.MC) {

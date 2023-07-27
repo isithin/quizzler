@@ -11,6 +11,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+/**
+ * FXML Controller class for selectQuestionType.fxml
+ */
 public class SelectQuestionTypeController {
 
     //Views
@@ -19,63 +22,77 @@ public class SelectQuestionTypeController {
     @FXML private RadioButton sc;
     @FXML private ToggleGroup group;
 
+    /**
+     * @throws IOException
+     * Switches to the enterQuestion view.
+     * Sets the displayType to the selected type.
+     * If no type is selected, it will show an alert.
+     */
     @FXML
     private void switchToEnterQuestion() throws IOException {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
         if (selected != null){
             if (selected.getId().equals(mc.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.MC);
-                StartQuizzler.setRoot("enterQuestion");
+                InitQuizzler.setDisplayType(DisplayType.MC);
             }
             if (selected.getId().equals(tf.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.TF);
-                StartQuizzler.setRoot("enterQuestion");
+                InitQuizzler.setDisplayType(DisplayType.TF);
             }
             if (selected.getId().equals(sc.getId())) {
-                StartQuizzler.setDisplayType(DisplayType.SC);
-                StartQuizzler.setRoot("enterQuestion");
+                InitQuizzler.setDisplayType(DisplayType.SC);
             }
+            InitQuizzler.setRoot("enterQuestion");
         } else {
-            Alert alert = new Alert(AlertType.NONE, "Please select a Questiontype", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+           alerting("Please select a Questiontype");
         }   
     }
 
+    /**
+     * @throws IOException
+     * adds the quiz to the server.
+     * If no questions were added to the quiz, it will show an alert.
+     * If the quiz was added successfully, it will show an alert and switch to the menu view.
+     * If the quiz was not added successfully, it will show an alert.
+     */
     @FXML
     private void saveAndQuit() throws IOException{
-        if (StartQuizzler.getNewQuiz().getQuestionsInt() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please add at least one question", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
+        if (InitQuizzler.getNewQuiz().getQuestionsInt() == 0) {
+            alerting("Please add at least one question");
         } else {
-            Connection connection = StartQuizzler.getConnection();
-            if (connection.addQuizToServer(StartQuizzler.getNewQuiz())) {
+            Connection connection = InitQuizzler.getConnection();
+            if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
                 Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.OK) {
                     alert.close();
-                    StartQuizzler.setRoot("menu");
+                    InitQuizzler.setRoot("menu");
                 }
             } else {
-                Alert alert = new Alert(AlertType.NONE, "Error: Quiz not added", ButtonType.OK);
-                alert.showAndWait();
-
-                if (alert.getResult() == ButtonType.OK) {
-                    alert.close();
-                }
+                alerting("Error: Quiz not added");
             }
         }
     }
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void quit() throws IOException {
-        StartQuizzler.setRoot("menu");
+        InitQuizzler.setRoot("menu");
+    }
+
+    /**
+     * @param message
+     * Here to avoid code duplication
+     */
+    public void alerting(String message) {
+        Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+            }
     }
 
     
