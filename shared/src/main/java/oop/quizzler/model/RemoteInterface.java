@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * This interface is used to define the methods that can be called.
+ * This interface is used to define the methods that are available to the client.
  */
 public interface RemoteInterface extends Remote{
     

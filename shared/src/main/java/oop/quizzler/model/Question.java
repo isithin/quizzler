@@ -22,6 +22,8 @@ public abstract class Question implements Serializable{
     /**
      * @param question
      * @param correctAnswers
+     * constructor that sets the question and the correct answers
+     * (display type is set in the extending classes)
      */
     public Question (String question, ArrayList<String> correctAnswers) {
 		this.question = question; 
@@ -30,6 +32,7 @@ public abstract class Question implements Serializable{
 
     /**
      * @return
+     * returns the question
      */
     public String getQuestion() {
         return this.question;
@@ -37,6 +40,7 @@ public abstract class Question implements Serializable{
 
     /**
      * @return
+     * returns the correct answers in the form of an array list of strings
      */
     public ArrayList<String>getCorrectAnswer() {
         return this.correctAnswers;
@@ -44,6 +48,7 @@ public abstract class Question implements Serializable{
 
     /**
      * @return
+     * returns the display type of the question
      */
     public DisplayType getDisplayType() {
         return this.displayType;
@@ -52,7 +57,8 @@ public abstract class Question implements Serializable{
     /**
      * @param givenAnswers
      * @return
-     * abstract method to check if the given answers are correct
+     * abstract method to check if the given answers are correct. 
+     * Implemented in all extending classes.
      */
     public abstract boolean checkAnswer(ArrayList<String> givenAnswers);
 

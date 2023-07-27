@@ -11,6 +11,7 @@ public class SCQuestion extends Question{
     /**
      * @param question
      * @param correctAnswers
+     * constructor that automatically sets the display type to SC
      */
     public SCQuestion (String question, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
@@ -19,6 +20,7 @@ public class SCQuestion extends Question{
 
     /**
      * @return
+     * returns the answers in the form of a string array
      */
     public String[] getAnswers() {
         return this.answers;
@@ -27,7 +29,7 @@ public class SCQuestion extends Question{
     /**
      * @param givenAnswers
      * @return
-     * checks if the given answer is correct 
+     * checks if the given answer is correct. (Specifically for SC questions)
      */
     @Override
     public boolean checkAnswer(ArrayList<String> givenAnswers) {

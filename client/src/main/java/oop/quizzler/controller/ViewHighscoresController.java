@@ -21,11 +21,18 @@ public class ViewHighscoresController implements Initializable{
 
     private ArrayList<Attempt> attemptList;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
         InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * Gets the attempts from the server and adds them to a list.
+     */
     private void getItem(){
         try {
             Connection connection = InitQuizzler.getConnection();

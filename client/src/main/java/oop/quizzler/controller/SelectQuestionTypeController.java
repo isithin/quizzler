@@ -22,6 +22,12 @@ public class SelectQuestionTypeController {
     @FXML private RadioButton sc;
     @FXML private ToggleGroup group;
 
+    /**
+     * @throws IOException
+     * Switches to the enterQuestion view.
+     * Sets the displayType to the selected type.
+     * If no type is selected, it will show an alert.
+     */
     @FXML
     private void switchToEnterQuestion() throws IOException {
         RadioButton selected = (RadioButton) group.getSelectedToggle();
@@ -41,6 +47,13 @@ public class SelectQuestionTypeController {
         }   
     }
 
+    /**
+     * @throws IOException
+     * adds the quiz to the server.
+     * If no questions were added to the quiz, it will show an alert.
+     * If the quiz was added successfully, it will show an alert and switch to the menu view.
+     * If the quiz was not added successfully, it will show an alert.
+     */
     @FXML
     private void saveAndQuit() throws IOException{
         if (InitQuizzler.getNewQuiz().getQuestionsInt() == 0) {
@@ -61,6 +74,10 @@ public class SelectQuestionTypeController {
         }
     }
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void quit() throws IOException {
         InitQuizzler.setRoot("menu");

@@ -17,11 +17,20 @@ public class NamingQuizController {
     //Views
     @FXML private TextField quizName;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
         InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * Creates a new quiz with the entered name and switches to the selectQuestionType view.
+     * If no quizname is entered, an alert is shown.
+     * If the quizname already exists, an alert is shown. (Quiznames have to be unique to use them as id)
+     */
     @FXML
     private void switchToEditor() {
         if ((quizName.getText()).length() == 0) {

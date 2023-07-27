@@ -40,6 +40,12 @@ public class AnswerQuestionController implements Initializable{
     private ArrayList<String> answer = new ArrayList<String>();
 
 
+    /**
+     * @throws IOException
+     * Collects and checks the given answer. 
+     * Switches to the next question. 
+     * If there are no more questions, it will switch to the viewScore view.
+     */
     @FXML
     private void nextQuestion() throws IOException {
         collectAnswers(question.getDisplayType());
@@ -64,6 +70,10 @@ public class AnswerQuestionController implements Initializable{
         }
     }
 
+    /**
+     * @param displayType
+     * Collects the answers based on the displayType
+     */
     private void collectAnswers(DisplayType displayType) {
         if (displayType.equals(DisplayType.TF)) {
             answer.add(answerText.getText());

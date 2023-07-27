@@ -11,6 +11,7 @@ public class MCQuestion extends Question{
      * @param question
      * @param answers
      * @param correctAnswers
+     * constructor that automatically sets the display type to MC
      */
     public MCQuestion (String question, String[] answers, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
@@ -20,6 +21,7 @@ public class MCQuestion extends Question{
 
     /**
      * @return
+     * returns the answers in the form of a string array
      */
     public String[] getAnswers() {
         return this.answers;
@@ -28,7 +30,7 @@ public class MCQuestion extends Question{
     /**
      * @param answers
      * @return
-     * checks if the given answers are correct
+     * checks if the given answers are correct. (Specifically for MC questions)
      */
     @Override
     public boolean checkAnswer(ArrayList<String> givenAnswers) {

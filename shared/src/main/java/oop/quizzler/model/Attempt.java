@@ -13,6 +13,7 @@ public class Attempt implements Comparable<Object>, Serializable{
     /**
      * @param username
      * @param activeQuiz
+     * Constructor for Attempt.
      */
     public Attempt(String username, Quiz activeQuiz) {
         this.username = username;
@@ -22,6 +23,7 @@ public class Attempt implements Comparable<Object>, Serializable{
     /**
      * @param other
      * @return 
+     * Compares the score of this attempt to another attempt.
      */
     @Override
     public int compareTo(Object other) {
@@ -31,6 +33,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @return
+     * Returns the username of the user who attempted the quiz.
      */
     public String getUsername() {
         return username;
@@ -38,6 +41,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @param username
+     * Sets the username of the user who attempted the quiz.
      */
     public void setUsername(String username) {
         this.username = username;
@@ -45,6 +49,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @return
+     * Returns the score of the attempt.
      */
     public int getScore() {
         return score;
@@ -52,6 +57,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @param score
+     * Sets the score of the attempt.
      */
     public void setScore(int score) {
         this.score = score;
@@ -59,6 +65,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @return
+     * Returns the count of the current number of questions answered.
      */
     public int getCount() {
         return count;
@@ -66,6 +73,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @param newCount
+     * Sets the count to the current number of questions answered.
      */
     public void setCount(int newCount) {
         this.count = newCount;
@@ -73,6 +81,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @return
+     * Returns the active quiz.
      */
     public Quiz getActiveQuiz() {
         return activeQuiz;
@@ -80,6 +89,7 @@ public class Attempt implements Comparable<Object>, Serializable{
 
     /**
      * @param activeQuiz
+     * Sets the active quiz to the quiz specified in the parameter.
      */
     public void setActiveQuiz(Quiz activeQuiz) {
         this.activeQuiz = activeQuiz;

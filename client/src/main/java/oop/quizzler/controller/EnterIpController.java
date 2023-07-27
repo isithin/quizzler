@@ -18,11 +18,21 @@ public class EnterIpController {
 
     private Connection connection;
 
+    /**
+     * @throws IOException
+     * Switches to the welcome view.
+     */
     @FXML
     private void switchToWelcome() throws IOException {
         InitQuizzler.setRoot("welcome");
     }
 
+    /**
+     * @throws IOException
+     * Establishes a connection to the server.
+     * If the connection fails, an alert is shown.
+     * If the connection succeeds, the connection is saved in the InitQuizzler class and the selectQuiz view is shown.
+     */
     @FXML
     private void establishConnection() throws IOException{
         if (((ip.getText()).length() == 0)||((port.getText()).length() == 0)) {

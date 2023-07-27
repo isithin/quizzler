@@ -9,6 +9,7 @@ public class TFQuestion extends Question{
     /**
      * @param question
      * @param correctAnswers
+     * constructor that automatically sets the display type to TF
      */
     public TFQuestion (String question, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
@@ -18,7 +19,7 @@ public class TFQuestion extends Question{
     /**
      * @param givenAnswers
      * @return
-     * checks if the given answer is correct
+     * checks if the given answer is correct. (Specifically for TF questions)
      */
     @Override
     public boolean checkAnswer(ArrayList<String> givenAnswers) {

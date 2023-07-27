@@ -41,6 +41,13 @@ public class EnterQuestionController implements Initializable{
     @FXML private RadioButton button4;
     @FXML private Label description;
 
+
+    /**
+     * @throws IOException
+     * Adds the question to the quiz.
+     * Switches to the selectQuestionType view.
+     * If the question is not complete, it will show an alert.
+     */
     @FXML
     private void createMore() throws IOException{
         if (DisplayType.MC == displayType) {
@@ -64,6 +71,12 @@ public class EnterQuestionController implements Initializable{
         }
     }
 
+    /**
+     * @throws IOException
+     * Adds the question to the quiz.
+     * Saves the quiz and switches to the menu view. (with pushQuizToServer() method)
+     * If the question is not complete, it will show an alert.
+     */
     @FXML
     private void saveAndQuit() throws IOException{
         if (DisplayType.MC == displayType) {
@@ -87,11 +100,20 @@ public class EnterQuestionController implements Initializable{
         }
     }
 
+    /**
+     * @throws IOException
+     * Switches to the selectQuestionType view.
+     */
     @FXML
     private void switchToSelectQuestionType() throws IOException {
         InitQuizzler.setRoot("selectQuestionType");
     }
 
+    /**
+     * @return
+     * Special method for MC questions.
+     * Adds answer choices and the correct answers to the question and adds the question to the quiz.
+     */
     private boolean addMCQuestionToQuiz() {
         if (button1.isSelected()) {
             correctAnswers.add(answer1.getText());
@@ -117,7 +139,12 @@ public class EnterQuestionController implements Initializable{
         return true;            
     }
 
-    private boolean addTFQuestionToQuiz() throws IOException{
+    /**
+     * @return
+     * Special method for TF questions.
+     * Adds the correct answer to the question and adds the question to the quiz
+     */
+    private boolean addTFQuestionToQuiz() {
         correctAnswers.add(correctAnswerText.getText());
         String questionText = questionField.getText();
         if (correctAnswers.size() == 0 || questionText.equals("")) {
@@ -133,6 +160,7 @@ public class EnterQuestionController implements Initializable{
     
     /**
      * @return
+     * Special method for SC questions.
      * Adds the selected answer to the question and adds the question to the quiz
      */
     public boolean addSCQuestionToQuiz() {
@@ -163,7 +191,7 @@ public class EnterQuestionController implements Initializable{
 
     /**
      * @throws IOException
-     * Pushes the quiz to the server
+     * Pushes the quiz to the server and switches to the menu view.
      */
     public void pushQuizToServer() throws IOException{
         Connection connection = InitQuizzler.getConnection();

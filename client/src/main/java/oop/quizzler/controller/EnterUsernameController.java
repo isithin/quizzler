@@ -14,11 +14,19 @@ public class EnterUsernameController {
     //Views
     @FXML private TextField username;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
         InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * Switches to the answerQuestion view. Creates a new attempt.
+     * If no username is entered, an alert is shown.
+     */
     @FXML
     private void playQuiz() {
         if ((username.getText()).length() == 0) {

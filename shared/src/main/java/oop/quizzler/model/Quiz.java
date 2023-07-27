@@ -14,6 +14,7 @@ public class Quiz implements Serializable {
 
     /**
      * @param name
+     * constructor that sets the name of the quiz
      */
     public Quiz(String name) {
         this.name = name;
@@ -21,6 +22,7 @@ public class Quiz implements Serializable {
 
     /**
      * @return
+     * returns the name of the quiz
      */
     public String getName() {
         return this.name;
@@ -28,6 +30,7 @@ public class Quiz implements Serializable {
 
     /**
      * @param question
+     * adds a question to the array list of questions
      */
     public void setQuestion(Question question) {
         this.questions.add(question);
@@ -35,6 +38,7 @@ public class Quiz implements Serializable {
 
     /**
      * @return
+     * returns the questions of the quiz in the form of an array list of questions
      */
     public ArrayList<Question> getQuestions() {
         return this.questions;
@@ -42,6 +46,7 @@ public class Quiz implements Serializable {
 
     /**
      * @return
+     * returns the number of questions in the quiz
      */
     public int getQuestionsInt(){
         return this.questions.size();
@@ -49,6 +54,8 @@ public class Quiz implements Serializable {
 
     /**
      * @param attempt
+     * adds an attempt to the scores of the quiz
+     * sorts the scores from high to low using Collections
      */
     public void setAttempt(Attempt attempt) {
         this.scores.add(attempt);
@@ -57,6 +64,7 @@ public class Quiz implements Serializable {
 
     /**
      * @return
+     * returns the attempts of the quiz in the form of an array list of attempts
      */
     public ArrayList<Attempt> getAttempts() {
         return scores;

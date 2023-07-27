@@ -14,11 +14,19 @@ public class ViewScoreController implements Initializable{
     //Views
     @FXML private Label scoreResults;
 
+    /**
+     * @throws IOException
+     * Switches to the menu view.
+     */
     @FXML
     private void switchToMenu() throws IOException {
         InitQuizzler.setRoot("menu");
     }
 
+    /**
+     * @throws IOException
+     * Switches to the highscores view.
+     */
     @FXML
     private void switchToHighscores() throws IOException {
         InitQuizzler.setRoot("viewHighscores");
