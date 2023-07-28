@@ -19,8 +19,10 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	private ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
 
 	/**
-	 * @throws RemoteException Constructor for the server. Loads all quizzes from
-	 *                         QuizData.txt into quizzes variable.
+	 * Constructor for the server. Loads all quizzes from QuizData.txt into quizzes
+	 * variable.
+	 * 
+	 * @throws RemoteException
 	 */
 	public Server() throws RemoteException {
 		super();
@@ -40,8 +42,10 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	}
 
 	/**
-	 * @param newquiz
-	 * @return adds a quiz to the server
+	 * adds a quiz to the server
+	 * 
+	 * @param newquiz quiz to be added
+	 * @return returns true if the quiz was added successfully
 	 */
 	@Override
 	public boolean addQuiz(Quiz newquiz) {
@@ -56,8 +60,10 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	}
 
 	/**
-	 * @param name
-	 * @return gets a quiz from the server identified by name
+	 * gets a quiz from the server identified by name
+	 * 
+	 * @param name name of the quiz to be returned
+	 * @return returns the quiz with the given name
 	 */
 	@Override
 	public Quiz getQuiz(String name) {
@@ -70,8 +76,10 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	}
 
 	/**
-	 * @param name
-	 * @return deletes a quiz from the server identified by name
+	 * deletes a quiz from the server identified by name
+	 * 
+	 * @param name name of the quiz to be deleted
+	 * @return returns true if the quiz was deleted successfully
 	 */
 	@Override
 	public boolean deleteQuiz(String name) {
@@ -86,7 +94,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	}
 
 	/**
-	 * @return gets all quiznames from the server
+	 * @return returns all quiznames from the server in a String array
 	 */
 	@Override
 	public String[] getQuizzesString() {
@@ -100,8 +108,10 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	}
 
 	/**
-	 * @param score
-	 * @param name  adds a highscore to the quiz on the server
+	 * adds a highscore to the quiz on the server
+	 * 
+	 * @param score attempt with score to be added
+	 * @param name  name of the quiz to add the highscore to
 	 */
 	@Override
 	public void addHighscore(Attempt score, String name) {

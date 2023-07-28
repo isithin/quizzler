@@ -17,8 +17,9 @@ public class WelcomeController {
 	private Button joinGame;
 
 	/**
-	 * @throws IOException Switches to the menu view. Establishes a connection to
-	 *                     the local server.
+	 * Switches to the menu view. Establishes a connection to the local server.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {
@@ -28,7 +29,9 @@ public class WelcomeController {
 	}
 
 	/**
-	 * @throws IOException Switches to the enterIp view.
+	 * Switches to the enterIp view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToEnterIp() throws IOException {

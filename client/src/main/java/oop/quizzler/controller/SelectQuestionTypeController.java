@@ -30,9 +30,10 @@ public class SelectQuestionTypeController {
 	private ToggleGroup group;
 
 	/**
-	 * @throws IOException Switches to the enterQuestion view. Sets the displayType
-	 *                     to the selected type. If no type is selected, it will
-	 *                     show an alert.
+	 * Switches to the enterQuestion view. Sets the displayType to the selected
+	 * type. If no type is selected, it will show an alert.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToEnterQuestion() throws IOException {
@@ -54,11 +55,12 @@ public class SelectQuestionTypeController {
 	}
 
 	/**
-	 * @throws IOException adds the quiz to the server. If no questions were added
-	 *                     to the quiz, it will show an alert. If the quiz was added
-	 *                     successfully, it will show an alert and switch to the
-	 *                     menu view. If the quiz was not added successfully, it
-	 *                     will show an alert.
+	 * adds the quiz to the server. If no questions were added to the quiz, it will
+	 * show an alert. If the quiz was added successfully, it will show an alert and
+	 * switch to the menu view. If the quiz was not added successfully, it will show
+	 * an alert.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void saveAndQuit() throws IOException {
@@ -81,7 +83,9 @@ public class SelectQuestionTypeController {
 	}
 
 	/**
-	 * @throws IOException Switches to the menu view.
+	 * Switches to the menu view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void quit() throws IOException {
@@ -89,7 +93,9 @@ public class SelectQuestionTypeController {
 	}
 
 	/**
-	 * @param message Here to avoid code duplication
+	 * Here to avoid code duplication. Shows an alert with the given message.
+	 * 
+	 * @param message the message to be shown
 	 */
 	public void alerting(String message) {
 		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);

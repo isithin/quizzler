@@ -20,7 +20,9 @@ public class MenuController {
 	private Button back;
 
 	/**
-	 * @throws IOException Switches to the selectQuiz view.
+	 * Switches to the selectQuiz view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToSelectQuiz() throws IOException {
@@ -28,7 +30,9 @@ public class MenuController {
 	}
 
 	/**
-	 * @throws IOException Switches to the namingQuiz view.
+	 * Switches to the namingQuiz view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToNamingQuiz() throws IOException {
@@ -36,7 +40,9 @@ public class MenuController {
 	}
 
 	/**
-	 * @throws IOException Switches to the welcome view.
+	 * Switches to the welcome view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToWelcome() throws IOException {

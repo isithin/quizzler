@@ -64,9 +64,10 @@ public class EnterQuestionController implements Initializable {
 	private Label description;
 
 	/**
-	 * @throws IOException Adds the question to the quiz. Switches to the
-	 *                     selectQuestionType view. If the question is not complete,
-	 *                     it will show an alert.
+	 * Adds the question to the quiz. Switches to the selectQuestionType view. If
+	 * the question is not complete, it will show an alert.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void createMore() throws IOException {
@@ -93,10 +94,10 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @throws IOException Adds the question to the quiz. Saves the quiz and
-	 *                     switches to the menu view. (with pushQuizToServer()
-	 *                     method) If the question is not complete, it will show an
-	 *                     alert.
+	 * Adds the question to the quiz. Saves the quiz and switches to the menu view.
+	 * If the question is not complete, it will show an alert.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void saveAndQuit() throws IOException {
@@ -123,7 +124,9 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @throws IOException Switches to the selectQuestionType view.
+	 * Switches to the selectQuestionType view.
+	 * 
+	 * @throws IOException
 	 */
 	@FXML
 	private void switchToSelectQuestionType() throws IOException {
@@ -131,8 +134,10 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @return Special method for MC questions. Adds answer choices and the correct
-	 *         answers to the question and adds the question to the quiz.
+	 * Special method for MC questions. Adds answer choices and the correct answers
+	 * to the question and adds the question to the quiz.
+	 * 
+	 * @return true if the question is complete and added, false if not
 	 */
 	private boolean addMCQuestionToQuiz() {
 		if (button1.isSelected()) {
@@ -165,8 +170,10 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @return Special method for TF questions. Adds the correct answer to the
-	 *         question and adds the question to the quiz
+	 * Special method for TF questions. Adds the correct answer to the question and
+	 * adds the question to the quiz.
+	 * 
+	 * @return true if the question is complete and added, false if not
 	 */
 	private boolean addTFQuestionToQuiz() {
 		correctAnswers.add(correctAnswerText.getText());
@@ -182,8 +189,10 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @return Special method for SC questions. Adds the selected answer to the
-	 *         question and adds the question to the quiz
+	 * Special method for SC questions. Adds the selected answer to the question and
+	 * adds the question to the quiz.
+	 * 
+	 * @return true if the question is complete and added, false if not
 	 */
 	public boolean addSCQuestionToQuiz() {
 		RadioButton selected = (RadioButton) group.getSelectedToggle();
@@ -200,7 +209,9 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @param message Here to avoid code duplication
+	 * Here to avoid code duplication. Shows an alert with the given message.
+	 * 
+	 * @param message the message to be shown
 	 */
 	public void alerting(String message) {
 		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
@@ -211,8 +222,9 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @throws IOException Pushes the quiz to the server and switches to the menu
-	 *                     view.
+	 * Pushes the quiz to the server and switches to the menu view.
+	 * 
+	 * @throws IOException
 	 */
 	public void pushQuizToServer() throws IOException {
 		Connection connection = InitQuizzler.getConnection();
@@ -234,8 +246,10 @@ public class EnterQuestionController implements Initializable {
 	}
 
 	/**
-	 * @param url
-	 * @param rb  Sets the initial view according to the displayType
+	 * Sets the initial view according to the displayType
+	 * 
+	 * @param url not used but required
+	 * @param rb  not used but required
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {

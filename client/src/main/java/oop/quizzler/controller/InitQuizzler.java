@@ -32,9 +32,10 @@ public class InitQuizzler extends Application {
 	private static DisplayType displayType;
 
 	/**
-	 * @param stage
-	 * @throws IOException Starts the application with the welcome view and sets the
-	 *                     stage.
+	 * Starts the application with the welcome view and sets the stage.
+	 * 
+	 * @param stage The stage of the application.
+	 * @throws IOException
 	 */
 	@Override
 	public void start(Stage stage) throws IOException {
@@ -49,17 +50,21 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param fxml
-	 * @throws IOException Changes the view to the view specified in the parameter.
+	 * Changes the view to the view specified in the parameter.
+	 * 
+	 * @param fxml The view to be changed to.
+	 * @throws IOException
 	 */
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
 	}
 
 	/**
-	 * @param fxml
-	 * @return
-	 * @throws IOException Loads the fxml file specified in the parameter.
+	 * Loads the fxml file specified in the parameter.
+	 * 
+	 * @param fxml The fxml file to be loaded.
+	 * @return Returns the loaded fxml file.
+	 * @throws IOException
 	 */
 	private static Parent loadFXML(String fxml) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(InitQuizzler.class.getResource(fxml + ".fxml"));
@@ -67,7 +72,9 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param name Creates a new quiz with the name specified in the parameter.
+	 * Creates a new quiz with the name specified in the parameter.
+	 * 
+	 * @param name The name of the new quiz.
 	 */
 	public static void createNewQuiz(String name) {
 		InitQuizzler.newQuiz = new Quiz(name);
@@ -81,9 +88,11 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param username
-	 * @param activeQuiz Creates a new attempt with the username and active quiz
-	 *                   specified in the parameters.
+	 * Creates a new attempt with the username and active quiz specified in the
+	 * parameters.
+	 * 
+	 * @param username   The username of the user who attempted the quiz.
+	 * @param activeQuiz The active quiz.
 	 */
 	public static void createNewAttempt(String username, Quiz activeQuiz) {
 		InitQuizzler.attempt = new Attempt(username, activeQuiz);
@@ -97,8 +106,9 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param activeQuiz Sets the active quiz to the quiz specified in the
-	 *                   parameter.
+	 * Sets the active quiz to the quiz specified in the parameter.
+	 * 
+	 * @param activeQuiz The active quiz.
 	 */
 	public static void setActiveQuiz(Quiz activeQuiz) {
 		InitQuizzler.activeQuiz = activeQuiz;
@@ -112,8 +122,9 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param connection Sets the connection to the given connection specified in
-	 *                   the parameter.
+	 * Sets the connection to the given connection specified in the parameter.
+	 * 
+	 * @param connection The connection to the server.
 	 */
 	public static void setConnection(Connection connection) {
 		InitQuizzler.connection = connection;
@@ -127,10 +138,11 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param displayType Sets the display type to the given display type specified
-	 *                    in the parameter. Helps to keep track of the current
-	 *                    display type of the question throughout the different
-	 *                    views.
+	 * Sets the display type to the given display type specified in the parameter.
+	 * Helps to keep track of the current display type of the question throughout
+	 * the different views.
+	 * 
+	 * @param displayType The display type of the question.
 	 */
 	public static void setDisplayType(DisplayType displayType) {
 		InitQuizzler.displayType = displayType;
@@ -144,7 +156,9 @@ public class InitQuizzler extends Application {
 	}
 
 	/**
-	 * @param args Launches the application.
+	 * Launches the application.
+	 * 
+	 * @param args Standard arguments.
 	 */
 	public static void main(String[] args) {
 		launch();

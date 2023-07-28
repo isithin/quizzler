@@ -87,7 +87,7 @@ public class AnswerQuestionController implements Initializable {
 	/**
 	 * Collects the answers based on the displayType
 	 * 
-	 * @param displayType
+	 * @param displayType The displayType of the question
 	 */
 	private void collectAnswers(DisplayType displayType) {
 		if (displayType.equals(DisplayType.TF)) {
@@ -114,8 +114,8 @@ public class AnswerQuestionController implements Initializable {
 	/**
 	 * Initializes the view based on the displayType
 	 * 
-	 * @param url
-	 * @param resourceBundle
+	 * @param url            not used but required
+	 * @param resourceBundle not used but required
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
