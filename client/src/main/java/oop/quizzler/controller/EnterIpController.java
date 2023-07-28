@@ -12,47 +12,49 @@ import javafx.scene.control.Alert.AlertType;
  * FXML Controller class for enterIp.fxml
  */
 public class EnterIpController {
-    //Views
-    @FXML private TextField ip;
-    @FXML private TextField port;
+	// Views
+	@FXML
+	private TextField ip;
 
-    private Connection connection;
+	@FXML
+	private TextField port;
 
-    /**
-     * @throws IOException
-     * Switches to the welcome view.
-     */
-    @FXML
-    private void switchToWelcome() throws IOException {
-        InitQuizzler.setRoot("welcome");
-    }
+	private Connection connection;
 
-    /**
-     * @throws IOException
-     * Establishes a connection to the server.
-     * If the connection fails, an alert is shown.
-     * If the connection succeeds, the connection is saved in the InitQuizzler class and the selectQuiz view is shown.
-     */
-    @FXML
-    private void establishConnection() throws IOException{
-        if (((ip.getText()).length() == 0)||((port.getText()).length() == 0)) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter IP and Port", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else {
-                connection = new Connection(ip.getText(), Integer.parseInt(port.getText()));
-                InitQuizzler.setConnection(connection);
-        }
-        if (connection.getRemoteInterface() == null) {
-            Alert alert = new Alert(AlertType.NONE, "Connection failed, please try again", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else {
-            InitQuizzler.setRoot("selectQuiz");
-        }
-    }
+	/**
+	 * @throws IOException Switches to the welcome view.
+	 */
+	@FXML
+	private void switchToWelcome() throws IOException {
+		InitQuizzler.setRoot("welcome");
+	}
+
+	/**
+	 * @throws IOException Establishes a connection to the server. If the connection
+	 *                     fails, an alert is shown. If the connection succeeds, the
+	 *                     connection is saved in the InitQuizzler class and the
+	 *                     selectQuiz view is shown.
+	 */
+	@FXML
+	private void establishConnection() throws IOException {
+		if (((ip.getText()).length() == 0) || ((port.getText()).length() == 0)) {
+			Alert alert = new Alert(AlertType.NONE, "Please enter IP and Port", ButtonType.OK);
+			alert.showAndWait();
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
+		} else {
+			connection = new Connection(ip.getText(), Integer.parseInt(port.getText()));
+			InitQuizzler.setConnection(connection);
+		}
+		if (connection.getRemoteInterface() == null) {
+			Alert alert = new Alert(AlertType.NONE, "Connection failed, please try again", ButtonType.OK);
+			alert.showAndWait();
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
+		} else {
+			InitQuizzler.setRoot("selectQuiz");
+		}
+	}
 }

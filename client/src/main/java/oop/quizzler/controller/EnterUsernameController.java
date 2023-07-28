@@ -11,37 +11,37 @@ import javafx.scene.control.Alert.AlertType;
  * FXML Controller class for enterUsername.fxml
  */
 public class EnterUsernameController {
-    //Views
-    @FXML private TextField username;
+	// Views
+	@FXML
+	private TextField username;
 
-    /**
-     * @throws IOException
-     * Switches to the menu view.
-     */
-    @FXML
-    private void switchToMenu() throws IOException {
-        InitQuizzler.setRoot("menu");
-    }
+	/**
+	 * @throws IOException Switches to the menu view.
+	 */
+	@FXML
+	private void switchToMenu() throws IOException {
+		InitQuizzler.setRoot("menu");
+	}
 
-    /**
-     * Switches to the answerQuestion view. Creates a new attempt.
-     * If no username is entered, an alert is shown.
-     */
-    @FXML
-    private void playQuiz() {
-        if ((username.getText()).length() == 0) {
-            Alert alert = new Alert(AlertType.NONE, "Please enter a username", ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-        } else {
-            try {
-                InitQuizzler.createNewAttempt(username.getText(), InitQuizzler.getActiveQuiz()); 
-                InitQuizzler.setRoot("answerQuestion");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+	/**
+	 * Switches to the answerQuestion view. Creates a new attempt. If no username is
+	 * entered, an alert is shown.
+	 */
+	@FXML
+	private void playQuiz() {
+		if ((username.getText()).length() == 0) {
+			Alert alert = new Alert(AlertType.NONE, "Please enter a username", ButtonType.OK);
+			alert.showAndWait();
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
+		} else {
+			try {
+				InitQuizzler.createNewAttempt(username.getText(), InitQuizzler.getActiveQuiz());
+				InitQuizzler.setRoot("answerQuestion");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

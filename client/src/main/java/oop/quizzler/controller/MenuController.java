@@ -9,36 +9,37 @@ import javafx.scene.control.Button;
  */
 public class MenuController {
 
-    //Views
-    @FXML private Button play;
-    @FXML private Button create;
-    @FXML private Button back;
-    
-    /**
-     * @throws IOException
-     * Switches to the selectQuiz view.
-     */
-    @FXML
-    private void switchToSelectQuiz() throws IOException {
-        InitQuizzler.setRoot("selectQuiz");
-    }
+	// Views
+	@FXML
+	private Button play;
 
-    /**
-     * @throws IOException
-     * Switches to the namingQuiz view.
-     */
-    @FXML
-    private void switchToNamingQuiz() throws IOException {
-        InitQuizzler.setRoot("namingQuiz");
-    }
+	@FXML
+	private Button create;
 
-    /**
-     * @throws IOException
-     * Switches to the welcome view.
-     */
-    @FXML
-    private void switchToWelcome() throws IOException {
-        InitQuizzler.setRoot("welcome");
-    }
+	@FXML
+	private Button back;
 
+	/**
+	 * @throws IOException Switches to the selectQuiz view.
+	 */
+	@FXML
+	private void switchToSelectQuiz() throws IOException {
+		InitQuizzler.setRoot("selectQuiz");
+	}
+
+	/**
+	 * @throws IOException Switches to the namingQuiz view.
+	 */
+	@FXML
+	private void switchToNamingQuiz() throws IOException {
+		InitQuizzler.setRoot("namingQuiz");
+	}
+
+	/**
+	 * @throws IOException Switches to the welcome view.
+	 */
+	@FXML
+	private void switchToWelcome() throws IOException {
+		InitQuizzler.setRoot("welcome");
+	}
 }

@@ -15,71 +15,68 @@ import oop.quizzler.model.Connection;
 /**
  * FXML Controller class for selectQuiz.fxml
  */
-public class SelectQuizController implements Initializable{
-    //Views
-    @FXML private ListView<String> quizListView;
+public class SelectQuizController implements Initializable {
+	// Views
+	@FXML
+	private ListView<String> quizListView;
 
-    private  List<String> quizList;
-    private Connection connection;
+	private List<String> quizList;
 
-    /**
-     * @throws IOException
-     * Switches to the menu view.
-     */
-    @FXML
-    private void switchToMenu() throws IOException {
-        InitQuizzler.setRoot("menu");
-    }
+	private Connection connection;
 
-    /**
-     * @throws IOException
-     * Switches to the enterUsername view. Sets the active quiz to the selected quiz.
-     */
-    @FXML
-    private void switchToEnterUsername() throws IOException{
-        InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
-        InitQuizzler.setRoot("enterUsername");
-    }
+	/**
+	 * @throws IOException Switches to the menu view.
+	 */
+	@FXML
+	private void switchToMenu() throws IOException {
+		InitQuizzler.setRoot("menu");
+	}
 
-    /**
-     * Deletes the selected quiz from the server. (with confirmation)
-     */
-    @FXML
-    private void deleteQuiz() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Quiz");
-        alert.setHeaderText("Are you sure you want to delete this quiz?");
-        if (alert.showAndWait().get().getText().equals("OK")) {
-            connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
-            getItem();
-            quizListView.setItems(FXCollections.observableList(quizList));
-            alert.close();
-        } else {
-            alert.close();
-        }      
-    }
+	/**
+	 * @throws IOException Switches to the enterUsername view. Sets the active quiz
+	 *                     to the selected quiz.
+	 */
+	@FXML
+	private void switchToEnterUsername() throws IOException {
+		InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+		InitQuizzler.setRoot("enterUsername");
+	}
 
-    /**
-     * Gets all the quiznames from the server and displays them in a listview.
-     */
-    @FXML
-    private void getItem(){
-        try {
-            connection = InitQuizzler.getConnection();
-            quizList = Arrays.asList(connection.getAllQuizNamesFromServer());   
-        } catch(Exception e) {
-            e.printStackTrace();
-        }  
-    }
+	/**
+	 * Deletes the selected quiz from the server. (with confirmation)
+	 */
+	@FXML
+	private void deleteQuiz() {
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Delete Quiz");
+		alert.setHeaderText("Are you sure you want to delete this quiz?");
+		if (alert.showAndWait().get().getText().equals("OK")) {
+			connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
+			getItem();
+			quizListView.setItems(FXCollections.observableList(quizList));
+			alert.close();
+		} else {
+			alert.close();
+		}
+	}
 
-    /**
-     * @param url
-     * @param rb
-     * Initializes the view. Gets all the quiznames from the server and displays them in a listview.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        getItem();
-        quizListView.setItems(FXCollections.observableList(quizList));
-    }    
+	/**
+	 * Gets all the quiznames from the server and displays them in a listview.
+	 */
+	@FXML
+	private void getItem() {
+		connection = InitQuizzler.getConnection();
+		quizList = Arrays.asList(connection.getAllQuizNamesFromServer());
+	}
+
+	/**
+	 * @param url
+	 * @param rb  Initializes the view. Gets all the quiznames from the server and
+	 *            displays them in a listview.
+	 */
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		getItem();
+		quizListView.setItems(FXCollections.observableList(quizList));
+	}
 }
