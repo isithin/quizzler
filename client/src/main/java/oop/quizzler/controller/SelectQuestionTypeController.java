@@ -16,84 +16,86 @@ import javafx.scene.control.ToggleGroup;
  */
 public class SelectQuestionTypeController {
 
-    //Views
-    @FXML private RadioButton mc;
-    @FXML private RadioButton tf;
-    @FXML private RadioButton sc;
-    @FXML private ToggleGroup group;
+	// Views
+	@FXML
+	private RadioButton mc;
 
-    /**
-     * @throws IOException
-     * Switches to the enterQuestion view.
-     * Sets the displayType to the selected type.
-     * If no type is selected, it will show an alert.
-     */
-    @FXML
-    private void switchToEnterQuestion() throws IOException {
-        RadioButton selected = (RadioButton) group.getSelectedToggle();
-        if (selected != null){
-            if (selected.getId().equals(mc.getId())) {
-                InitQuizzler.setDisplayType(DisplayType.MC);
-            }
-            if (selected.getId().equals(tf.getId())) {
-                InitQuizzler.setDisplayType(DisplayType.TF);
-            }
-            if (selected.getId().equals(sc.getId())) {
-                InitQuizzler.setDisplayType(DisplayType.SC);
-            }
-            InitQuizzler.setRoot("enterQuestion");
-        } else {
-           alerting("Please select a Questiontype");
-        }   
-    }
+	@FXML
+	private RadioButton tf;
 
-    /**
-     * @throws IOException
-     * adds the quiz to the server.
-     * If no questions were added to the quiz, it will show an alert.
-     * If the quiz was added successfully, it will show an alert and switch to the menu view.
-     * If the quiz was not added successfully, it will show an alert.
-     */
-    @FXML
-    private void saveAndQuit() throws IOException{
-        if (InitQuizzler.getNewQuiz().getQuestionsInt() == 0) {
-            alerting("Please add at least one question");
-        } else {
-            Connection connection = InitQuizzler.getConnection();
-            if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
-                Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
-                alert.showAndWait();
+	@FXML
+	private RadioButton sc;
 
-                if (alert.getResult() == ButtonType.OK) {
-                    alert.close();
-                    InitQuizzler.setRoot("menu");
-                }
-            } else {
-                alerting("Error: Quiz not added");
-            }
-        }
-    }
+	@FXML
+	private ToggleGroup group;
 
-    /**
-     * @throws IOException
-     * Switches to the menu view.
-     */
-    @FXML
-    private void quit() throws IOException {
-        InitQuizzler.setRoot("menu");
-    }
+	/**
+	 * @throws IOException Switches to the enterQuestion view. Sets the displayType
+	 *                     to the selected type. If no type is selected, it will
+	 *                     show an alert.
+	 */
+	@FXML
+	private void switchToEnterQuestion() throws IOException {
+		RadioButton selected = (RadioButton) group.getSelectedToggle();
+		if (selected != null) {
+			if (selected.getId().equals(mc.getId())) {
+				InitQuizzler.setDisplayType(DisplayType.MC);
+			}
+			if (selected.getId().equals(tf.getId())) {
+				InitQuizzler.setDisplayType(DisplayType.TF);
+			}
+			if (selected.getId().equals(sc.getId())) {
+				InitQuizzler.setDisplayType(DisplayType.SC);
+			}
+			InitQuizzler.setRoot("enterQuestion");
+		} else {
+			alerting("Please select a Questiontype");
+		}
+	}
 
-    /**
-     * @param message
-     * Here to avoid code duplication
-     */
-    public void alerting(String message) {
-        Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                alert.close();
-            }
-    }
+	/**
+	 * @throws IOException adds the quiz to the server. If no questions were added
+	 *                     to the quiz, it will show an alert. If the quiz was added
+	 *                     successfully, it will show an alert and switch to the
+	 *                     menu view. If the quiz was not added successfully, it
+	 *                     will show an alert.
+	 */
+	@FXML
+	private void saveAndQuit() throws IOException {
+		if (InitQuizzler.getNewQuiz().getQuestionsInt() == 0) {
+			alerting("Please add at least one question");
+		} else {
+			Connection connection = InitQuizzler.getConnection();
+			if (connection.addQuizToServer(InitQuizzler.getNewQuiz())) {
+				Alert alert = new Alert(AlertType.NONE, "Quiz added", ButtonType.OK);
+				alert.showAndWait();
 
-    
+				if (alert.getResult().equals(ButtonType.OK)) {
+					alert.close();
+					InitQuizzler.setRoot("menu");
+				}
+			} else {
+				alerting("Error: Quiz not added");
+			}
+		}
+	}
+
+	/**
+	 * @throws IOException Switches to the menu view.
+	 */
+	@FXML
+	private void quit() throws IOException {
+		InitQuizzler.setRoot("menu");
+	}
+
+	/**
+	 * @param message Here to avoid code duplication
+	 */
+	public void alerting(String message) {
+		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
+		alert.showAndWait();
+		if (alert.getResult().equals(ButtonType.OK)) {
+			alert.close();
+		}
+	}
 }

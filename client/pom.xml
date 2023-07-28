@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-    <artifactId>quizzler</artifactId>
-    <groupId>oop.quizzler</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+        <groupId>oop.quizzler</groupId>
+        <artifactId>quizzler</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>oop.quizzler</groupId>
     <artifactId>client</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
-
 
     <dependencies>
         <dependency>
@@ -33,6 +35,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -49,14 +52,22 @@
                 <version>0.0.6</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>oop.quizzler.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <usedDependencies>
+                        <dependency>org.openjfx:javafx-fxml</dependency>
+                        <dependency>org.openjfx:javafx-controls</dependency>
+                    </usedDependencies>
+                </configuration>
             </plugin>
         </plugins>
     </build>
