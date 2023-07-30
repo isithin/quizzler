@@ -73,7 +73,6 @@ public class AnswerQuestionController implements Initializable {
 			if (alert.getResult().equals(ButtonType.OK)) {
 				alert.close();
 			}
-        
 		}
 		if (attempt.getCount() < InitQuizzler.getActiveQuiz().getQuestionsInt() - 1) {
 			attempt.setCount(attempt.getCount() + 1);
