@@ -13,7 +13,7 @@ public interface RemoteInterface extends Remote {
 	 * 
 	 * @param quiz quiz to be added
 	 * @return returns true if the quiz was added successfully
-	 * @throws RemoteException
+	 * @throws RemoteException if the remote object is not available
 	 */
 	public boolean addQuiz(Quiz quiz) throws RemoteException;
 
@@ -22,7 +22,7 @@ public interface RemoteInterface extends Remote {
 	 * 
 	 * @param name name of the quiz to be deleted
 	 * @return returns true if the quiz was deleted successfully
-	 * @throws RemoteException
+	 * @throws RemoteException if the remote object is not available
 	 */
 	public boolean deleteQuiz(String name) throws RemoteException;
 
@@ -31,7 +31,7 @@ public interface RemoteInterface extends Remote {
 	 * 
 	 * @param name name of the quiz to be returned
 	 * @return returns the quiz with the given name
-	 * @throws RemoteException
+	 * @throws RemoteException if the remote object is not available
 	 */
 	public Quiz getQuiz(String name) throws RemoteException;
 
@@ -39,7 +39,7 @@ public interface RemoteInterface extends Remote {
 	 * gets all quiznames from the server
 	 * 
 	 * @return returns all quiznames from the server in a String array
-	 * @throws RemoteException
+	 * @throws RemoteException if the remote object is not available
 	 */
 	public String[] getQuizzesString() throws RemoteException;
 
@@ -48,7 +48,7 @@ public interface RemoteInterface extends Remote {
 	 * 
 	 * @param attempt attempt with score to be added
 	 * @param name    name of the quiz to add the highscore to
-	 * @throws RemoteException
+	 * @throws RemoteException if the remote object is not available
 	 */
 	public void addHighscore(Attempt attempt, String name) throws RemoteException;
 }

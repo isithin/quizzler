@@ -22,7 +22,7 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 	 * Constructor for the server. Loads all quizzes from QuizData.txt into quizzes
 	 * variable.
 	 * 
-	 * @throws RemoteException
+	 * @throws RemoteException can be caused by the unicastRemoteObject constructor (super)
 	 */
 	public Server() throws RemoteException {
 		super();

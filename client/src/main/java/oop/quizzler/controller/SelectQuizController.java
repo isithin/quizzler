@@ -27,7 +27,7 @@ public class SelectQuizController implements Initializable {
 	/**
 	 * Switches to the menu view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {
@@ -38,7 +38,7 @@ public class SelectQuizController implements Initializable {
 	 * Switches to the enterUsername view. Sets the active quiz to the selected
 	 * quiz.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToEnterUsername() throws IOException {

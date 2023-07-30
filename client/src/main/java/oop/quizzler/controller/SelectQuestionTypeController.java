@@ -60,7 +60,7 @@ public class SelectQuestionTypeController {
 	 * switch to the menu view. If the quiz was not added successfully, it will show
 	 * an alert.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void saveAndQuit() throws IOException {
@@ -85,7 +85,7 @@ public class SelectQuestionTypeController {
 	/**
 	 * Switches to the menu view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void quit() throws IOException {

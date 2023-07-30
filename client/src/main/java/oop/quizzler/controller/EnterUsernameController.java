@@ -18,7 +18,7 @@ public class EnterUsernameController {
 	/**
 	 * Switches to the menu view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {

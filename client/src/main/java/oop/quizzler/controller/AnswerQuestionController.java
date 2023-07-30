@@ -58,7 +58,7 @@ public class AnswerQuestionController implements Initializable {
 	 * Collects and checks the given answer. Switches to the next question. If there
 	 * are no more questions, it will switch to the viewScore view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view could not be found
 	 */
 	@FXML
 	private void nextQuestion() throws IOException {
@@ -73,6 +73,7 @@ public class AnswerQuestionController implements Initializable {
 			if (alert.getResult().equals(ButtonType.OK)) {
 				alert.close();
 			}
+        
 		}
 		if (attempt.getCount() < InitQuizzler.getActiveQuiz().getQuestionsInt() - 1) {
 			attempt.setCount(attempt.getCount() + 1);

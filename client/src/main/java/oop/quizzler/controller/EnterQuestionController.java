@@ -67,7 +67,7 @@ public class EnterQuestionController implements Initializable {
 	 * Adds the question to the quiz. Switches to the selectQuestionType view. If
 	 * the question is not complete, it will show an alert.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void createMore() throws IOException {
@@ -97,7 +97,7 @@ public class EnterQuestionController implements Initializable {
 	 * Adds the question to the quiz. Saves the quiz and switches to the menu view.
 	 * If the question is not complete, it will show an alert.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void saveAndQuit() throws IOException {
@@ -126,7 +126,7 @@ public class EnterQuestionController implements Initializable {
 	/**
 	 * Switches to the selectQuestionType view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToSelectQuestionType() throws IOException {
@@ -224,7 +224,7 @@ public class EnterQuestionController implements Initializable {
 	/**
 	 * Pushes the quiz to the server and switches to the menu view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	public void pushQuizToServer() throws IOException {
 		Connection connection = InitQuizzler.getConnection();

@@ -35,7 +35,7 @@ public class InitQuizzler extends Application {
 	 * Starts the application with the welcome view and sets the stage.
 	 * 
 	 * @param stage The stage of the application.
-	 * @throws IOException
+	 * @throws IOException If the view cannot be found.
 	 */
 	@Override
 	public void start(Stage stage) throws IOException {
@@ -53,7 +53,7 @@ public class InitQuizzler extends Application {
 	 * Changes the view to the view specified in the parameter.
 	 * 
 	 * @param fxml The view to be changed to.
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
@@ -64,7 +64,7 @@ public class InitQuizzler extends Application {
 	 * 
 	 * @param fxml The fxml file to be loaded.
 	 * @return Returns the loaded fxml file.
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	private static Parent loadFXML(String fxml) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(InitQuizzler.class.getResource(fxml + ".fxml"));

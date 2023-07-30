@@ -18,7 +18,7 @@ public class ViewScoreController implements Initializable {
 	/**
 	 * Switches to the menu view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {
@@ -28,7 +28,7 @@ public class ViewScoreController implements Initializable {
 	/**
 	 * Switches to the highscores view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToHighscores() throws IOException {

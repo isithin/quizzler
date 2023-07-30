@@ -19,7 +19,7 @@ public class WelcomeController {
 	/**
 	 * Switches to the menu view. Establishes a connection to the local server.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {
@@ -31,7 +31,7 @@ public class WelcomeController {
 	/**
 	 * Switches to the enterIp view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToEnterIp() throws IOException {

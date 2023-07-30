@@ -22,7 +22,7 @@ public class MenuController {
 	/**
 	 * Switches to the selectQuiz view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToSelectQuiz() throws IOException {
@@ -32,7 +32,7 @@ public class MenuController {
 	/**
 	 * Switches to the namingQuiz view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToNamingQuiz() throws IOException {
@@ -42,7 +42,7 @@ public class MenuController {
 	/**
 	 * Switches to the welcome view.
 	 * 
-	 * @throws IOException
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToWelcome() throws IOException {
