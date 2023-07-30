@@ -7,9 +7,10 @@ import java.util.ArrayList;
  */
 public class TFQuestion extends Question {
 	/**
-	 * @param question
-	 * @param correctAnswers constructor that automatically sets the display type to
-	 *                       TF
+	 * constructor that automatically sets the display type to TF
+	 * 
+	 * @param question       question to be asked
+	 * @param correctAnswers correct answers to the question
 	 */
 	public TFQuestion(String question, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
@@ -17,9 +18,10 @@ public class TFQuestion extends Question {
 	}
 
 	/**
-	 * @param givenAnswers
-	 * @return checks if the given answer is correct. (Specifically for TF
-	 *         questions)
+	 * checks if the given answer is correct. (Specifically for TF questions)
+	 * 
+	 * @param givenAnswers answers given by the user
+	 * @return returns true if the given answer is correct, false if not
 	 */
 	@Override
 	public boolean checkAnswer(ArrayList<String> givenAnswers) {

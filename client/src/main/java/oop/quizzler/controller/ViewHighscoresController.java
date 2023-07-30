@@ -23,7 +23,9 @@ public class ViewHighscoresController implements Initializable {
 	private ArrayList<Attempt> attemptList;
 
 	/**
-	 * @throws IOException Switches to the menu view.
+	 * Switches to the menu view.
+	 * 
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {

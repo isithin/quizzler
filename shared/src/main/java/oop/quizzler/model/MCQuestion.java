@@ -9,10 +9,11 @@ public class MCQuestion extends Question {
 	private String[] answers;
 
 	/**
-	 * @param question
-	 * @param answers
-	 * @param correctAnswers constructor that automatically sets the display type to
-	 *                       MC
+	 * constructor that automatically sets the display type to MC
+	 * 
+	 * @param question       question to be asked
+	 * @param answers        answers to the question
+	 * @param correctAnswers correct answers to the question
 	 */
 	public MCQuestion(String question, String[] answers, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
@@ -28,9 +29,10 @@ public class MCQuestion extends Question {
 	}
 
 	/**
-	 * @param givenAnswers
-	 * @return checks if the given answers are correct. (Specifically for MC
-	 *         questions)
+	 * checks if the given answers are correct. (Specifically for MC questions)
+	 * 
+	 * @param givenAnswers answers given by the user
+	 * @return returns true if the given answers are correct, false if not
 	 */
 	@Override
 	public boolean checkAnswer(ArrayList<String> givenAnswers) {
