@@ -25,7 +25,9 @@ public class SelectQuizController implements Initializable {
 	private Connection connection;
 
 	/**
-	 * @throws IOException Switches to the menu view.
+	 * Switches to the menu view.
+	 * 
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToMenu() throws IOException {
@@ -33,8 +35,10 @@ public class SelectQuizController implements Initializable {
 	}
 
 	/**
-	 * @throws IOException Switches to the enterUsername view. Sets the active quiz
-	 *                     to the selected quiz.
+	 * Switches to the enterUsername view. Sets the active quiz to the selected
+	 * quiz.
+	 * 
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToEnterUsername() throws IOException {
@@ -70,9 +74,11 @@ public class SelectQuizController implements Initializable {
 	}
 
 	/**
-	 * @param url
-	 * @param rb  Initializes the view. Gets all the quiznames from the server and
-	 *            displays them in a listview.
+	 * Initializes the view. Gets all the quiznames from the server and displays
+	 * them in a listview.
+	 * 
+	 * @param url not used but required
+	 * @param rb  not used but required
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {

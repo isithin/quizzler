@@ -22,7 +22,9 @@ public class EnterIpController {
 	private Connection connection;
 
 	/**
-	 * @throws IOException Switches to the welcome view.
+	 * Switches to the welcome view.
+	 * 
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void switchToWelcome() throws IOException {
@@ -30,10 +32,11 @@ public class EnterIpController {
 	}
 
 	/**
-	 * @throws IOException Establishes a connection to the server. If the connection
-	 *                     fails, an alert is shown. If the connection succeeds, the
-	 *                     connection is saved in the InitQuizzler class and the
-	 *                     selectQuiz view is shown.
+	 * Establishes a connection to the server. If the connection fails, an alert is
+	 * shown. If the connection succeeds, the connection is saved in the
+	 * InitQuizzler class and the selectQuiz view is shown.
+	 * 
+	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void establishConnection() throws IOException {
