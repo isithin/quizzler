@@ -7,7 +7,7 @@ import java.util.Collections;
 /**
  * Class that represents a quiz.
  */
-public class Quiz implements Serializable, Cloneable {
+public class Quiz implements Serializable {
 	private String name;
 
 	private ArrayList<Question> questions = new ArrayList<>();
@@ -15,7 +15,9 @@ public class Quiz implements Serializable, Cloneable {
 	private ArrayList<Attempt> scores = new ArrayList<>();
 
 	/**
-	 * @param name constructor that sets the name of the quiz
+	 * constructor that sets the name of the quiz
+	 * 
+	 * @param name name of the quiz
 	 */
 	public Quiz(String name) {
 		this.name = name;
@@ -29,7 +31,9 @@ public class Quiz implements Serializable, Cloneable {
 	}
 
 	/**
-	 * @param question adds a question to the array list of questions
+	 * adds a question to the array list of questions
+	 * 
+	 * @param question question to be added
 	 */
 	public void setQuestion(Question question) {
 		this.questions.add(question);
@@ -51,8 +55,10 @@ public class Quiz implements Serializable, Cloneable {
 	}
 
 	/**
-	 * @param attempt adds an attempt to the scores of the quiz sorts the scores
-	 *                from high to low using Collections
+	 * adds an attempt to the scores of the quiz sorts the scores from high to low
+	 * using Collections
+	 * 
+	 * @param attempt attempt to be added
 	 */
 	public void setAttempt(Attempt attempt) {
 		this.scores.add(attempt);
@@ -65,17 +71,5 @@ public class Quiz implements Serializable, Cloneable {
 	 */
 	public ArrayList<Attempt> getAttempts() {
 		return scores;
-	}
-
-	/**
-	 * @return returns a clone of the quiz.
-	 */
-	@Override
-	protected Object clone() {
-		try {
-			return super.clone();
-		} catch (CloneNotSupportedException e) {
-			return null;
-		}
 	}
 }

@@ -12,9 +12,11 @@ import oop.quizzler.model.Server;
  */
 public class StartServer {
 	/**
-	 * @param args main method. Starts the server. Creates a registry and binds the
-	 *             Server object to it. Prints the IP and PORT of the server. If the
-	 *             server fails to start, it prints "Failed".
+	 * main method. Starts the server. Creates a registry and binds the Server
+	 * object to it. Prints the IP and PORT of the server. If the server fails to
+	 * start, it prints "Failed".
+	 * 
+	 * @param args startup arguments
 	 */
 	public static void main(String[] args) {
 		try {

@@ -15,8 +15,10 @@ public class Attempt implements Comparable<Object>, Serializable {
 	private int count = 0;
 
 	/**
-	 * @param username
-	 * @param activeQuiz Constructor for Attempt.
+	 * Constructor for Attempt.
+	 * 
+	 * @param username   username of the user who attempted the quiz
+	 * @param activeQuiz the active quiz
 	 */
 	public Attempt(String username, Quiz activeQuiz) {
 		this.username = username;
@@ -24,8 +26,10 @@ public class Attempt implements Comparable<Object>, Serializable {
 	}
 
 	/**
-	 * @param other
-	 * @return Compares the score of this attempt to another attempt.
+	 * Compares the score of this attempt to another attempt.
+	 * 
+	 * @param other the other attempt to compare to
+	 * @return Returns the difference between the scores of the attempts.
 	 */
 	@Override
 	public int compareTo(Object other) {
@@ -41,7 +45,9 @@ public class Attempt implements Comparable<Object>, Serializable {
 	}
 
 	/**
-	 * @param username Sets the username of the user who attempted the quiz.
+	 * Sets the username of the user who attempted the quiz.
+	 * 
+	 * @param username The username of the user who attempted the quiz.
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -55,7 +61,9 @@ public class Attempt implements Comparable<Object>, Serializable {
 	}
 
 	/**
-	 * @param score Sets the score of the attempt.
+	 * Sets the score of the attempt.
+	 * 
+	 * @param score The score of the attempt.
 	 */
 	public void setScore(int score) {
 		this.score = score;
@@ -69,7 +77,9 @@ public class Attempt implements Comparable<Object>, Serializable {
 	}
 
 	/**
-	 * @param newCount Sets the count to the current number of questions answered.
+	 * Sets the count to the current number of questions answered.
+	 * 
+	 * @param newCount The current number of questions answered.
 	 */
 	public void setCount(int newCount) {
 		this.count = newCount;
@@ -83,8 +93,9 @@ public class Attempt implements Comparable<Object>, Serializable {
 	}
 
 	/**
-	 * @param activeQuiz Sets the active quiz to the quiz specified in the
-	 *                   parameter.
+	 * Sets the active quiz to the quiz specified in the parameter.
+	 * 
+	 * @param activeQuiz The active quiz.
 	 */
 	public void setActiveQuiz(Quiz activeQuiz) {
 		this.activeQuiz = activeQuiz;

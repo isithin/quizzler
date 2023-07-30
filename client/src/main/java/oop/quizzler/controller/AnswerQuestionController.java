@@ -55,9 +55,10 @@ public class AnswerQuestionController implements Initializable {
 	private final ArrayList<String> answer = new ArrayList<>();
 
 	/**
-	 * @throws IOException Collects and checks the given answer. Switches to the
-	 *                     next question. If there are no more questions, it will
-	 *                     switch to the viewScore view.
+	 * Collects and checks the given answer. Switches to the next question. If there
+	 * are no more questions, it will switch to the viewScore view.
+	 * 
+	 * @throws IOException if the view could not be found
 	 */
 	@FXML
 	private void nextQuestion() throws IOException {
@@ -84,7 +85,9 @@ public class AnswerQuestionController implements Initializable {
 	}
 
 	/**
-	 * @param displayType Collects the answers based on the displayType
+	 * Collects the answers based on the displayType
+	 * 
+	 * @param displayType The displayType of the question
 	 */
 	private void collectAnswers(DisplayType displayType) {
 		if (displayType.equals(DisplayType.TF)) {
@@ -109,8 +112,10 @@ public class AnswerQuestionController implements Initializable {
 	}
 
 	/**
-	 * @param url
-	 * @param resourceBundle Initializes the view
+	 * Initializes the view based on the displayType
+	 * 
+	 * @param url            not used but required
+	 * @param resourceBundle not used but required
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
