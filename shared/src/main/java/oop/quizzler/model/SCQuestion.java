@@ -6,8 +6,6 @@ import java.util.ArrayList;
  * Class that represents a single choice question. (extends Question)
  */
 public class SCQuestion extends Question {
-	private String[] answers;
-
 	/**
 	 * constructor that automatically sets the display type to SC
 	 * 
@@ -17,13 +15,6 @@ public class SCQuestion extends Question {
 	public SCQuestion(String question, ArrayList<String> correctAnswers) {
 		super(question, correctAnswers);
 		this.displayType = DisplayType.SC;
-	}
-
-	/**
-	 * @return returns the answers in the form of a string array
-	 */
-	public String[] getAnswers() {
-		return this.answers;
 	}
 
 	/**
