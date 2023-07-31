@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.SelectQuizController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.SelectQuizController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="482.0" text="Select a Quiz" />
       <Button layoutX="93.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
