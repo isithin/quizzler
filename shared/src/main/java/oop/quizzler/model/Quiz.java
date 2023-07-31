@@ -8,6 +8,8 @@ import java.util.Collections;
  * Class that represents a quiz.
  */
 public class Quiz implements Serializable {
+	public static final long serialVersionUID = 1234567L;
+
 	private String name;
 
 	private ArrayList<Question> questions = new ArrayList<>();
