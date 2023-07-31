@@ -100,4 +100,13 @@ public class Attempt implements Comparable<Object>, Serializable {
 	public void setActiveQuiz(Quiz activeQuiz) {
 		this.activeQuiz = activeQuiz;
 	}
+
+	/**
+	 * test method
+	 * 
+	 * @return Returns a string.
+	 */
+	public static String get() {
+		return "Hello JUnit 5";
+	}
 }
