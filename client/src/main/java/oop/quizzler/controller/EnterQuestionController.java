@@ -194,7 +194,7 @@ public class EnterQuestionController implements Initializable {
 	 * 
 	 * @return true if the question is complete and added, false if not
 	 */
-	public boolean addSCQuestionToQuiz() {
+	private boolean addSCQuestionToQuiz() {
 		RadioButton selected = (RadioButton) group.getSelectedToggle();
 		if (selected == null) {
 			return false;

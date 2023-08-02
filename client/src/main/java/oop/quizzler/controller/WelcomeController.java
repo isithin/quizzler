@@ -37,4 +37,8 @@ public class WelcomeController {
 	private void switchToEnterIp() throws IOException {
 		InitQuizzler.setRoot("enterIp");
 	}
+
+	public static String get() {
+		return "works";
+	}
 }
