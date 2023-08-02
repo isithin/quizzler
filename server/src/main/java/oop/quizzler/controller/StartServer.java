@@ -3,9 +3,11 @@ package oop.quizzler.controller;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+
+import oop.quizzler.model.Server;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import oop.quizzler.model.Server;
 
 /**
  * This class starts the server.
