@@ -165,7 +165,7 @@ public class EnterQuestionController implements Initializable {
 		MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added ");
 		return true;
 	}
 
@@ -184,7 +184,7 @@ public class EnterQuestionController implements Initializable {
 		TFQuestion question = new TFQuestion(questionText, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added");
 		return true;
 	}
 
@@ -204,7 +204,7 @@ public class EnterQuestionController implements Initializable {
 		SCQuestion question = new SCQuestion(questionText, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added ");
 		return true;
 	}
 
