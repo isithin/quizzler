@@ -1,8 +1,12 @@
 # quizzler
-This parent POM is made for great Java projects, handling 
-		Eclipse and optional Project Lombok integration, having consistent Checkstyle 
-		and SpotBugs (successor of FindBugs) definitions in addition to even more 
-		Maven pre-configuration.
+A simple Quiz game to play with friends
 
 ## Getting started
-TODO: Easy to understand usage example
+clone this repo
+do: mvn clean install
+find the .jar executable file under client/target/client-1.0-SNAPSHOT-jar-with-dependencies.jar
+find javadocs in [client|server|shared]/target/apidocs/index.html
+
+## Requirements
+maven
+JDK 8+ (8 won´t work)
