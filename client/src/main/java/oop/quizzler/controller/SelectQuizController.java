@@ -64,6 +64,12 @@ public class SelectQuizController implements Initializable {
 		}
 	}
 
+	@FXML
+	private void switchToViewHighscores() throws IOException {
+		InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+		InitQuizzler.setRoot("viewHighscores");
+	}
+
 	/**
 	 * Gets all the quiznames from the server and displays them in a listview.
 	 */

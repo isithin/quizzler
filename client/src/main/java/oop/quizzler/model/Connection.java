@@ -39,7 +39,7 @@ public class Connection {
 			Registry reg = LocateRegistry.getRegistry(ip, port);
 			remoteInterface = (RemoteInterface) reg.lookup("Quizzler");
 			// for debugging
-			System.out.println("Connected.");
+			System.out.println("Connected to " + ip);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (NotBoundException e) {
