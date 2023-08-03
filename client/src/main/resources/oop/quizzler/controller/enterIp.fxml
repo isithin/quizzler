@@ -11,7 +11,6 @@
       <Button layoutX="121.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Exit" />
       <Button layoutX="295.0" layoutY="344.0" mnemonicParsing="false" onAction="#establishConnection" text="Continue" />
       <TextField fx:id="ip" layoutX="121.0" layoutY="127.0" prefHeight="25.0" prefWidth="239.0" text="127.0.0.1" />
-      <TextField fx:id="port" layoutX="121.0" layoutY="187.0" prefHeight="25.0" prefWidth="239.0" text="1099" />
    </children>
 </AnchorPane>
 
