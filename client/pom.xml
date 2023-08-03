@@ -129,7 +129,7 @@
                     <version>2.4</version>
                     <configuration>
                         <descriptorRefs>
-                            <descriptorRef>runnable</descriptorRef>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
                         </descriptorRefs>
                         <archive>
                             <manifest>
