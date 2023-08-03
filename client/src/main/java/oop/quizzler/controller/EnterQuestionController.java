@@ -194,7 +194,7 @@ public class EnterQuestionController implements Initializable {
 	 * 
 	 * @return true if the question is complete and added, false if not
 	 */
-	public boolean addSCQuestionToQuiz() {
+	private boolean addSCQuestionToQuiz() {
 		RadioButton selected = (RadioButton) group.getSelectedToggle();
 		if (selected == null) {
 			return false;
@@ -213,7 +213,7 @@ public class EnterQuestionController implements Initializable {
 	 * 
 	 * @param message the message to be shown
 	 */
-	public void alerting(String message) {
+	private void alerting(String message) {
 		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
 		alert.showAndWait();
 		if (alert.getResult() == ButtonType.OK) {

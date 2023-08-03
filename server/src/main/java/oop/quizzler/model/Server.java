@@ -11,6 +11,10 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import oop.quizzler.model.Attempt;
+import oop.quizzler.model.Quiz;
+import oop.quizzler.model.RemoteInterface;
+
 /**
  * Class that represents the server. (extends UnicastRemoteObject) (implements
  * RemoteInterface)
