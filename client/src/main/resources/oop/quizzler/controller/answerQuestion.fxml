@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.AnswerQuestionController">
    <children>
-      <Label fx:id="questionText" alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="484.0" textAlignment="CENTER" />
+      <Label fx:id="questionText" alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="448.0" textAlignment="CENTER" />
       <Button layoutX="348.0" layoutY="344.0" mnemonicParsing="false" onAction="#nextQuestion" text="Submit" />
       <RadioButton fx:id="button1" layoutX="41.0" layoutY="167.0" mnemonicParsing="false" />
       <RadioButton fx:id="button2" layoutX="267.0" layoutY="167.0" mnemonicParsing="false" />
       <RadioButton fx:id="button3" layoutX="41.0" layoutY="244.0" mnemonicParsing="false" />
       <RadioButton fx:id="button4" layoutX="267.0" layoutY="244.0" mnemonicParsing="false" />
-       <TextField fx:id="answerText" layoutX="57.0" layoutY="187.0" prefHeight="26.0" prefWidth="334.0" stylesheets="@style.css" />
+       <TextField fx:id="answerText" layoutX="56.0" layoutY="40.0" prefHeight="26.0" prefWidth="334.0" stylesheets="@style.css" />
    </children>
 </AnchorPane>
