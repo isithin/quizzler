@@ -9,8 +9,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.EnterQuestionController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="446.0" text="Enter the Question:" />
-      <Button layoutX="346.0" layoutY="344.0" mnemonicParsing="false" onAction="#createMore" text="Add more" />
-      <Button layoutX="170.0" layoutY="344.0" mnemonicParsing="false" onAction="#saveAndQuit" text="Save all and Quit" />
+      <Button layoutX="346.0" layoutY="380.0" mnemonicParsing="false" onAction="#createMore" text="Add more" />
+      <Button layoutX="170.0" layoutY="380.0" mnemonicParsing="false" onAction="#saveAndQuit" text="Save all and Quit" />
       <TextField fx:id="questionField" layoutX="103.0" layoutY="88.0" prefHeight="25.0" prefWidth="239.0" />
       <TextField fx:id="answer1" layoutX="54.0" layoutY="226.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="answer2" layoutX="264.0" layoutY="226.0" prefHeight="25.0" prefWidth="136.0" />
@@ -21,7 +21,7 @@
       <RadioButton fx:id="button2" layoutX="235.0" layoutY="230.0" mnemonicParsing="false" />
       <RadioButton fx:id="button3" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" />
       <RadioButton fx:id="button4" layoutX="235.0" layoutY="283.0" mnemonicParsing="false" />
-      <TextField fx:id="correctAnswerText" layoutX="66.0" layoutY="172.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="correctAnswerText" layoutX="66.0" layoutY="172.0" prefHeight="25.0" prefWidth="314.0" style="-fx-font-size: 15;" />
       <Button layoutX="45.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToSelectQuestionType" text="Back" />
    </children>
 </AnchorPane>
