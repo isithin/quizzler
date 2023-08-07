@@ -1,5 +1,5 @@
 # quizzler
-A simple Quiz game to play with friends
+A simple rmi Quiz-Game to play with friends over the same network.
 
 ## Getting started
 clone this repo
