@@ -9,6 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import oop.quizzler.model.Connection;
 
@@ -66,8 +68,18 @@ public class SelectQuizController implements Initializable {
 
 	@FXML
 	private void switchToViewHighscores() throws IOException {
-		InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
-		InitQuizzler.setRoot("viewHighscores");
+		if (quizListView.getSelectionModel().getSelectedItem() == null) {
+			Alert alert = new Alert(AlertType.NONE, "Please select a Quiz", ButtonType.OK);
+			alert.showAndWait();
+
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
+		} else {
+			InitQuizzler
+					.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+			InitQuizzler.setRoot("viewHighscores");
+		}
 	}
 
 	/**
