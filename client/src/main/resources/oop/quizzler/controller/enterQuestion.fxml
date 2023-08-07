@@ -21,7 +21,7 @@
       <RadioButton fx:id="button2" layoutX="235.0" layoutY="230.0" mnemonicParsing="false" />
       <RadioButton fx:id="button3" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" />
       <RadioButton fx:id="button4" layoutX="235.0" layoutY="283.0" mnemonicParsing="false" />
-      <TextField fx:id="correctAnswerText" layoutX="66.0" layoutY="172.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="correctAnswerText" layoutX="66.0" layoutY="172.0" prefHeight="25.0" prefWidth="314.0" fontsize="15" />
       <Button layoutX="45.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToSelectQuestionType" text="Back" />
    </children>
 </AnchorPane>
