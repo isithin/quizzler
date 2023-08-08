@@ -5,7 +5,7 @@
   }
   
   .label{
-     -fx-font-size: 20pt;
+     -fx-font-size: 15pt;
      -fx-text-fill: "white";
      -fx-alignment: center;
      -fx-layoutX: 300;
@@ -13,7 +13,7 @@
   }
   
   .button{
-     -fx-front-size: 60pt;
+     -fx-font-size: 10pt;
      -fx-background-color: #00008B;
      -fx-text-fill: "white";
      -fx-alignment: center;
