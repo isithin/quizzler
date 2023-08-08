@@ -17,10 +17,10 @@
       <TextField fx:id="answer3" layoutX="54.0" layoutY="279.0" prefHeight="25.0" prefWidth="136.0" />
       <TextField fx:id="answer4" layoutX="264.0" layoutY="279.0" prefHeight="25.0" prefWidth="136.0" />
       <Label fx:id="description" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="168.0" prefHeight="39.0" prefWidth="435.0" style="-fx-font-size: 15;" text="Label" />
-      <RadioButton fx:id="button1" layoutX="25.0" layoutY="230.0" mnemonicParsing="false" />
-      <RadioButton fx:id="button2" layoutX="235.0" layoutY="230.0" mnemonicParsing="false" />
-      <RadioButton fx:id="button3" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" />
-      <RadioButton fx:id="button4" layoutX="235.0" layoutY="283.0" mnemonicParsing="false" />
+      <RadioButton fx:id="button1" layoutX="25.0" layoutY="230.0" mnemonicParsing="false" textFill="WHITE"  />
+      <RadioButton fx:id="button2" layoutX="235.0" layoutY="230.0" mnemonicParsing="false" textFill="WHITE"  />
+      <RadioButton fx:id="button3" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" textFill="WHITE" />
+      <RadioButton fx:id="button4" layoutX="235.0" layoutY="283.0" mnemonicParsing="false" textFill="WHITE" />
        <TextField fx:id="correctAnswerText" layoutX="66.0" layoutY="172.0" prefHeight="25.0" prefWidth="314.0" style="-fx-font-size: 15;" />
       <Button layoutX="45.0" layoutY="380.0" mnemonicParsing="false" onAction="#switchToSelectQuestionType" text="Back" />
    </children>
