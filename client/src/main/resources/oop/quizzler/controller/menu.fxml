@@ -11,6 +11,6 @@
       <Button fx:id="create" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToNamingQuiz" text="Create New Quiz" textAlignment="CENTER" />
       <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutY="76.0" prefHeight="39.0" prefWidth="446.0" text="Welcome to" textAlignment="CENTER" />
       <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutY="142.0" prefHeight="39.0" prefWidth="446.0" text="Quizzler!" textAlignment="CENTER" />
-      <Label fx:id="serverInfo" layoutX="14.0" layoutY="14.0" text="Label" style="-fx-font-size: 10;" text="Label" />
+      <Label fx:id="serverInfo" layoutX="14.0" layoutY="14.0" text="Label" style="-fx-font-size: 10;" />
    </children>
 </AnchorPane>
