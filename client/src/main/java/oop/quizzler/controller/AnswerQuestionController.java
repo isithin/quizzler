@@ -21,7 +21,7 @@ import oop.quizzler.model.MCQuestion;
 import oop.quizzler.model.Quiz;
 
 /**
- * FXML Controller class for answerQuestion.fxml
+ * FXML Controller class for answerQuestion.fxml test
  */
 public class AnswerQuestionController implements Initializable {
 
