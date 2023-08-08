@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.EnterIpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.EnterIpController">
    <children>
       <Label layoutY="41.0" prefHeight="39.0" prefWidth="446.0" text="Enter a IP and Port" />
       <Button layoutX="103.0" layoutY="380.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Exit" />
@@ -13,4 +13,3 @@
       <TextField fx:id="ip" layoutX="103.0" layoutY="127.0" prefHeight="25.0" prefWidth="239.0" text="127.0.0.1" />
    </children>
 </AnchorPane>
-
