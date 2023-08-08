@@ -16,8 +16,7 @@ public class EnterIpController {
 	@FXML
 	private TextField ip;
 
-	@FXML
-	private TextField port;
+	private int standardPort;
 
 	private Connection connection;
 
@@ -34,20 +33,20 @@ public class EnterIpController {
 	/**
 	 * Establishes a connection to the server. If the connection fails, an alert is
 	 * shown. If the connection succeeds, the connection is saved in the
-	 * InitQuizzler class and the selectQuiz view is shown.
+	 * InitQuizzler class and the menu view is shown.
 	 * 
 	 * @throws IOException if the view cannot be found
 	 */
 	@FXML
 	private void establishConnection() throws IOException {
-		if (((ip.getText()).length() == 0) || ((port.getText()).length() == 0)) {
-			Alert alert = new Alert(AlertType.NONE, "Please enter IP and Port", ButtonType.OK);
+		if (((ip.getText()).length() == 0)) {
+			Alert alert = new Alert(AlertType.NONE, "Please enter a IP", ButtonType.OK);
 			alert.showAndWait();
 			if (alert.getResult().equals(ButtonType.OK)) {
 				alert.close();
 			}
 		} else {
-			connection = new Connection(ip.getText(), Integer.parseInt(port.getText()));
+			connection = new Connection(ip.getText(), standardPort);
 			InitQuizzler.setConnection(connection);
 		}
 		if (connection.getRemoteInterface() == null) {
@@ -57,7 +56,7 @@ public class EnterIpController {
 				alert.close();
 			}
 		} else {
-			InitQuizzler.setRoot("selectQuiz");
+			InitQuizzler.setRoot("menu");
 		}
 	}
 }

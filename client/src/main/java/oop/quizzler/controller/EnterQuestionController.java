@@ -165,7 +165,7 @@ public class EnterQuestionController implements Initializable {
 		MCQuestion question = new MCQuestion(questionText, answers, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added ");
 		return true;
 	}
 
@@ -184,7 +184,7 @@ public class EnterQuestionController implements Initializable {
 		TFQuestion question = new TFQuestion(questionText, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added");
 		return true;
 	}
 
@@ -194,7 +194,7 @@ public class EnterQuestionController implements Initializable {
 	 * 
 	 * @return true if the question is complete and added, false if not
 	 */
-	public boolean addSCQuestionToQuiz() {
+	private boolean addSCQuestionToQuiz() {
 		RadioButton selected = (RadioButton) group.getSelectedToggle();
 		if (selected == null) {
 			return false;
@@ -204,7 +204,7 @@ public class EnterQuestionController implements Initializable {
 		SCQuestion question = new SCQuestion(questionText, correctAnswers);
 		InitQuizzler.getNewQuiz().setQuestion(question);
 		// for debugging
-		System.out.println("Question added " + InitQuizzler.getNewQuiz().getQuestions());
+		System.out.println("Question added ");
 		return true;
 	}
 
@@ -213,7 +213,7 @@ public class EnterQuestionController implements Initializable {
 	 * 
 	 * @param message the message to be shown
 	 */
-	public void alerting(String message) {
+	private void alerting(String message) {
 		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
 		alert.showAndWait();
 		if (alert.getResult() == ButtonType.OK) {

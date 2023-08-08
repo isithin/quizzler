@@ -5,10 +5,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.ViewHighscoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.ViewHighscoresController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="481.0" text="Highscores" />
-      <Button layoutX="217.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
-      <ListView fx:id="scoreListView" layoutX="141.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="41.0" prefHeight="39.0" prefWidth="446.0" text="Highscores" />
+      <Button layoutX="199.0" layoutY="380.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
+      <ListView fx:id="scoreListView" layoutX="123.0" layoutY="122.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

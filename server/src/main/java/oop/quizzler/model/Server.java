@@ -35,9 +35,9 @@ public class Server extends UnicastRemoteObject implements RemoteInterface {
 				System.out.println("Loading Quizzes");
 				input.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.err.println("Error while loading Quizzes");
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+				System.err.println("Quiz-Class is not as expected");
 			}
 		}
 	}

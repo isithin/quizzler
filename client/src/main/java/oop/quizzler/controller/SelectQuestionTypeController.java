@@ -97,7 +97,7 @@ public class SelectQuestionTypeController {
 	 * 
 	 * @param message the message to be shown
 	 */
-	public void alerting(String message) {
+	private void alerting(String message) {
 		Alert alert = new Alert(AlertType.NONE, message, ButtonType.OK);
 		alert.showAndWait();
 		if (alert.getResult().equals(ButtonType.OK)) {
