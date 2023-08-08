@@ -44,8 +44,17 @@ public class SelectQuizController implements Initializable {
 	 */
 	@FXML
 	private void switchToEnterUsername() throws IOException {
-		InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
-		InitQuizzler.setRoot("enterUsername");
+		if (quizListView.getSelectionModel().getSelectedItem() == null) {
+			Alert alert = new Alert(AlertType.NONE, "Please select a Quiz", ButtonType.OK);
+			alert.showAndWait();
+
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
+		} else {
+			InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+			InitQuizzler.setRoot("enterUsername");
+		}
 	}
 
 	/**
@@ -53,16 +62,25 @@ public class SelectQuizController implements Initializable {
 	 */
 	@FXML
 	private void deleteQuiz() {
-		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("Delete Quiz");
-		alert.setHeaderText("Are you sure you want to delete this quiz?");
-		if (alert.showAndWait().get().getText().equals("OK")) {
-			connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
-			getItem();
-			quizListView.setItems(FXCollections.observableList(quizList));
-			alert.close();
+		if (quizListView.getSelectionModel().getSelectedItem() == null) {
+			Alert alert = new Alert(AlertType.NONE, "Please select a Quiz", ButtonType.OK);
+			alert.showAndWait();
+
+			if (alert.getResult().equals(ButtonType.OK)) {
+				alert.close();
+			}
 		} else {
-			alert.close();
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+			alert.setTitle("Delete Quiz");
+			alert.setHeaderText("Are you sure you want to delete this quiz?");
+			if (alert.showAndWait().get().getText().equals("OK")) {
+				connection.deleteQuizFromServer(quizListView.getSelectionModel().getSelectedItem());
+				getItem();
+				quizListView.setItems(FXCollections.observableList(quizList));
+				alert.close();
+			} else {
+				alert.close();
+			}
 		}
 	}
 
@@ -76,8 +94,7 @@ public class SelectQuizController implements Initializable {
 				alert.close();
 			}
 		} else {
-			InitQuizzler
-					.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
+			InitQuizzler.setActiveQuiz(connection.getQuizFromServer(quizListView.getSelectionModel().getSelectedItem()));
 			InitQuizzler.setRoot("viewHighscores");
 		}
 	}
