@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="435.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.quizzler.controller.MenuController">
+<AnchorPane prefHeight="435.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="oop.quizzler.controller.MenuController">
    <children>
       <Button fx:id="back" alignment="BOTTOM_RIGHT" contentDisplay="CENTER" layoutX="344.0" layoutY="400.0" mnemonicParsing="false" onAction="#switchToWelcome" text="Back" />
       <Button fx:id="play" alignment="CENTER" contentDisplay="CENTER" layoutX="174.0" layoutY="380.0" onAction="#switchToSelectQuiz" prefHeight="30.0" prefWidth="107.0" text="Select A Quiz" textAlignment="CENTER" />
