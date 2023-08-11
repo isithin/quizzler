@@ -74,6 +74,13 @@
     </pluginManagement>
   </build>
 
+  <distributionManagement>
+    <site>
+        <id>website</id>
+        <url>http://test.lan/hypothetical</url>
+    </site>
+</distributionManagement>
+
   <reporting>
     <plugins>
       <plugin>

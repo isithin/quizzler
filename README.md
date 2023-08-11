@@ -12,9 +12,11 @@ find the .jar executable file under client/target/client-1.0-SNAPSHOT-jar-with-d
 
 for some more information at runtime switch to the target directory and execute (windows): java -jar client-1.0-SNAPSHOT-jar-with-dependencies.jar 
 
-generate javadocs with: mvn site
+generate javadocs with: mvn site:stage
 
-find javadocs in [client|server|shared]/target/site/apidocs/index.html
+find javadocs in quizzler/[client|server|shared]/target/site/apidocs/index.html
+
+and aggregated javadocs in quizzler/target/staging/index.html
 
 ## Requirements
 Apache Maven
