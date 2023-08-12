@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"oop.quizzler.model","l":"Server"},{"p":"oop.quizzler.controller","l":"StartServer"}];updateSearchResults();
