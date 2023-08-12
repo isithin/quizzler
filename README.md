@@ -1,5 +1,5 @@
 # quizzler
-A simple rmi Quiz-Game to play with friends over the same network.
+A simple rmi Quiz-Game to play with friends over lan.
 
 ## Getting started
 clone this repo
@@ -14,11 +14,13 @@ for some more information at runtime switch to the target directory and execute 
 
 generate javadocs with: mvn site:stage
 
-find javadocs in quizzler/[client|server|shared]/target/site/apidocs/index.html
+find aggregated javadocs in quizzler/target/staging/index.html
 
-and aggregated javadocs in quizzler/target/staging/index.html
+or simply visit https://isithin.github.io/quizzler/
 
 ## Requirements
+Port 1099 must be opened if you want to host a game
+
 Apache Maven
 
 JDK 8+ (8 won´t work)
